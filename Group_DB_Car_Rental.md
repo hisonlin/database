@@ -23,7 +23,6 @@
 |Contact_No.|+1 7788991122||
 |Driver's License Number|124134543||
 
-
 ### 2. Membership
 |Field Name|Example of Data|Comments|
 |--|--|--|
@@ -74,18 +73,63 @@
 ### 6. Car
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|Make/Model|Porsche 918||
+|Year|2013||
+|VIN|10001||
+|Car Type|sport||
+|Current odometer|100000|'miles'|
+|Fuel type|disel||
+|Insurance information|||
+|Number of seats|4||
+|Number of doors|2|'couple'|
+|Car color|white||
+|Car condition|Good||
 
 ### 7. Rental Rate
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|Base rental rate|$40|Per day|
+|Additional driver fee|Null||
+|Mileage fee|Unlimited||
+|Fuel surcharge|$10||
+|Young driver surcharge|Null|Apply for drivers under 25|
+|One-way rental fee|Null||
+|Child seat fee|$10||
+|GPS rental fee|Null||
+|Pickup and drop-off fees|$20||
+|Extra hour fee|Null||
+|Government or military rates|Null||
+|Membership or loyalty program rates|Null||
 
 ### 8. Discount
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|Discount code|0001||
+|Discount name|Black Friday|'Holiday Sale'|
+|Discount description|50% off||
+|Discount start date|11-11-2020||
+|Discount end date|12-1-2020||
+|Discount status| active|active, expired, or discontinued|
 
 ### 9. Payment
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|Payment method|credit card|'credit card, debit card, cash, check'|
+|Credit card type|visa||
+|Credit card expiration date|08-12-2027||
+|Credit card billing address|123 Tree Avenue, Vancouver BC v7p 3g2||
+|Credit card security code|522||
+|Credit card holder name|Big Bob||
+|Credit card number|2343 2342 4645 2342||
+|Payment status|Confirmed||
+|Payment date|08-13-2022||
+|Payment amount|$345.33||
+|Transaction ID|B43434||
+|Payment receipt number|32536235||
+|Refund status if any|Null||
+|Payment plan if any|Null||
+|Payment processing fee if any|Null||
+|Payment gateway transaction ID|DFSEFF232||
 
 ### 10. Order       
 |Field Name|Example of Data|Comments|
@@ -136,19 +180,3 @@
 |Rental Order Number|12414124||
 |Technician Name|Carl Smith||
 |Technician ID|B4543045||
-
-
-
-
-
-
-
-### Monospaced
-
-    SELECT *
-        FROM flight
-            WHERE arrival_airport = 'YVR';
-
-When I am connecting to the database I use the following command `mysql -u root -p airport_system`.
-
-You can learn more about markdown [here](http://markdowntutorial.com)
