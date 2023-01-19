@@ -62,7 +62,7 @@
 ### 5. Staff
 |Field Name|Example of Data|Comments|
 |--|--|--|
-|Employee ID|1001231936||
+|Employee ID(PK)|1001231936||
 |Staff Name|Jim Kirk||
 |Position|Salesperson||
 |Email|j.kirk@rentacar.ca||
@@ -73,17 +73,16 @@
 ### 6. Car
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|VIN(PK)|10001||
+|Maintainance Order Number(FK)|2342342||
+|License Plate Number|B46 JP2||
 |Make/Model|Porsche 918||
 |Year|2013||
-|VIN|10001||
 |Car Type|sport||
-|Current odometer|100000|'miles'|
 |Fuel type|disel||
-|Insurance information|||
 |Number of seats|4||
 |Number of doors|2|'couple'|
 |Car color|white||
-|Car condition|Good||
 
 ### 7. Rental Rate
 |Field Name|Example of Data|Comments|
@@ -104,7 +103,7 @@
 ### 8. Discount
 |Field Name|Example of Data|Comments|
 |--|--|--|
-|Discount code|0001||
+|Discount code(PK)|0001||
 |Discount name|Black Friday|'Holiday Sale'|
 |Discount description|50% off||
 |Discount start date|11-11-2020||
@@ -114,6 +113,7 @@
 ### 9. Payment
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|Transaction ID(PK)|B43434||
 |Payment method|credit card|'credit card, debit card, cash, check'|
 |Credit card type|visa||
 |Credit card expiration date|08-12-2027||
@@ -124,7 +124,6 @@
 |Payment status|Confirmed||
 |Payment date|08-13-2022||
 |Payment amount|$345.33||
-|Transaction ID|B43434||
 |Payment receipt number|32536235||
 |Refund status if any|Null||
 |Payment plan if any|Null||
@@ -135,25 +134,27 @@
 |Field Name|Example of Data|Comments|
 |--|--|--|
 |Rental Order Number(PK)|2394324||
+|Customer_ID(FK)|124134543||
 |Pick-Up Branch ID(FK)|2342342|
 |Return Branch ID(FK)|2342342||
 |Employee ID(FK)|1001231936||
+|Transaction ID(FK)|B43434||
+|Insurance|593054043||
 |Pick-up Date|January 20, 2023||
 |Pick-up Time|13:00||
 |Return Date|January 21, 2023||
 |Return Time|13:00||
 |Rental Duration|1 Day||
-|Rental Rate|$80 per day||
-|Payment Method|Visa Credit||
+|Total|$100||
 |Renting Purpose|Leisure||
-|Customer_ID|124134543||
-|Additional Service|Child Service||
 
 ### 11. Insurance
 |Field Name|Example of Data|Comments|
 |--|--|--|
+|Policy Number(PK)|593054043||
+|Rental Order Number(FK)|2394324||
+|VIN(FK)|10001||
 |Insurance Type|Collision||
-|Policy Number|593054043||
 |Policy Start Date|January 17, 2023||
 |Policy End date|January 20, 2023||
 |Insured Amount|$10,000||
@@ -162,14 +163,14 @@
 |Deductible|$1,000||
 |Coverage Limit|$5,000||
 |Previous Claim|None|Dropdown menu for 'Yes' or 'None'|
-|Rental Order Number|2394324||
 
-### 12. Repair
+
+### 12. Maintainance
 |Field Name|Example of Data|Comments|
 |--|--|--|
-|Repair Order Number|2342342||
-|License Plate Number|B46 JP2||
-|Car Make/Model|Porsche 918||
+|Maintainance Order Number(PK)|2342342||
+|VIN(FK)|10001||
+|Rental Order Number(FK)|12414124|can be NULL|
 |Repair Date|Febuary 2, 2023||
 |Return Date|Febuary 22, 2023||
 |Repair Type|Engine Repair||
@@ -177,6 +178,5 @@
 |Repair Cost|$2,234.33||
 |Warranty|Lifetime||
 |Repair Facility ID|349534345||
-|Rental Order Number|12414124||
 |Technician Name|Carl Smith||
 |Technician ID|B4543045||
