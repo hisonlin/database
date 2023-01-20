@@ -1,7 +1,9 @@
 -- You can execute via the command line type C:\temp\cstp1201week4\staffDDL.sql | mysql -u root -p
 -- You can also use the source function from INSIDE mysql source type C:\temp\cstp1201week4\staffDDL.sql | mysql -u root -p
 -- ALTER TABLE customer ADD gender VARCHAR(10);
---ALTER TABLE customer DROP COLUME gender;
+-- ALTER TABLE customer DROP COLUME gender;
+-- UPDATE customer SET customer_id = '123456', contact_no = '7788925633' WHERE first_name = 'Hison' OR last_name = 'Lin'
+-- DELETE FROM customer WHERE customer_id = '123456' AND first_name = 'Hison'
 DROP DATABASE IF EXISTS carRental;
 
 CREATE DATABASE carRental;
