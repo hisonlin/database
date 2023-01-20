@@ -1,6 +1,7 @@
 -- You can execute via the command line type C:\temp\cstp1201week4\staffDDL.sql | mysql -u root -p
 -- You can also use the source function from INSIDE mysql source type C:\temp\cstp1201week4\staffDDL.sql | mysql -u root -p
-
+-- ALTER TABLE customer ADD gender VARCHAR(10);
+--ALTER TABLE customer DROP COLUME gender;
 DROP DATABASE IF EXISTS carRental;
 
 CREATE DATABASE carRental;
@@ -9,8 +10,8 @@ USE carRental;
 
 CREATE TABLE customer (
     customer_id VARCHAR(32) PRIMARY KEY NOT NULL,
-    membership_no_FK VARCHAR(32),
-    blacklist_no_FK VARCHAR(32),
+    membership_no_FK VARCHAR(32) UNIQUE,
+    blacklist_no_FK VARCHAR(32) UNIQUE,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(64) NOT NULL,
     date_of_birth date NOT NULL,
