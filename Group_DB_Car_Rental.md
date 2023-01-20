@@ -16,10 +16,8 @@
 |Blacklist_No.(FK)|Null||
 |First_Name|Sam||
 |Last_Name|Hill||
-|Middle_Name|Null||
 |Date_of_birth|01 Jan 1990||
 |Address|1234-No.1 Rd Vancouver BC||
-|Postal_Code|A1B 0C1||
 |Contact_No.|+1 7788991122||
 |Driver's License Number|124134543||
 
@@ -29,10 +27,8 @@
 |Membership_No.(PK)|000001||
 |First_Name|Sam||
 |Last_Name|Hill||
-|Middle_Name|Null||
 |Date_of_birth|01 Jan 1990||
 |Address|1234-No.1 Rd Vancouver BC||
-|Postal_Code|A1B 0C1||
 |Contact_No.|+1 7788991122||
 |Join_date|01 Jan 2023||
 
@@ -43,19 +39,16 @@
 |Order_no.(FK)|000001|The order made customer become blacklist|
 |First_Name|Sam||
 |Last_Name|Hill||
-|Middle_Name|Null||
 |Date_of_birth|01 Jan 1990||
 |Address|1234-No.1 Rd Vancouver BC||
-|Postal_Code|A1B 0C1||
 |Contact_No.|+1 7788991122||
+|Date_Become_Blacklist|||
 
 ### 4. Branch
 |Field Name|Example of Data|Comments|
 |--|--|--|
 |Branch_no.|01||
 |Address|1234 No.2 Rd Vancouver BC||
-|Postal_Code|A1B 0C2||
-|City|Vancouver||
 |Contact_No.|+1 7788991100||
 |Branch_Manager|Tom Li||
 
