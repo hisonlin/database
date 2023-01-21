@@ -7,169 +7,281 @@
 |5. Staff|6. Car|7. Rental rate|8. Discount|
 |9. Payment|10. Order|11. Insurance|12. Repair|
 
-## Field
 ### 1. Customer
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Customer_ID(PK)|000001||
-|Membership_No.(FK)|000001||
-|Blacklist_No.(FK)|Null||
-|First_Name|Sam||
-|Last_Name|Hill||
-|Date_of_birth|01 Jan 1990||
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Customer ID(PK)|000001||Jia Xi
+|Membership No.(FK)|000001||
+|First Name|Sam||
+|Last Name|Hill||
 |Address|1234-No.1 Rd Vancouver BC||
-|Contact_No.|+1 7788991122||
+|Contact No.|+1 7788991122||
+|Email|samhill@gmail.com||
+|Date of birth|01 Jan 1990||
 |Driver's License Number|124134543||
 
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|custome_id|Customer ID|store the id of a customer|INT AUTO_INCREMENT|Primay Key||
+|membership_no|Membership Number|store the number of a member|VARCHAR(20)|Foreign Key||
+|first_name|First Name|store the first name of a customer|VARCHAR(64)|Candidate Key||
+|last_name|Last Name|store the last name of a customer|VARCHAR(64)|Candidate Key||
+|address|Address|store the address of a customer|VARCHAR(200)|Candidate Key||
+|contact_no|Contact Number|store the contact number of a customer|VARCHAR(20)|Candidate Key||
+|email|Email|store the email of a customer|VARCHAR(100)|Candidate Key||
+|date_of_birth|Date of birth|store the date of birth of a customer|DATE|Candidate Key||
+|drivers_license_no|Driver's License Number|store the driver's license number of a customer|VARCHAR(20)|Alternate Key||
+
 ### 2. Membership
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Membership_No.(PK)|000001||
-|First_Name|Sam||
-|Last_Name|Hill||
-|Date_of_birth|01 Jan 1990||
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Membership No.(PK)|1||Jia Xi
+|Membership Type|Gold|(Platinum, Gold, Silver, Bronze, Null)|
+|First Name|Sam||
+|Last Name|Hill||
 |Address|1234-No.1 Rd Vancouver BC||
-|Contact_No.|+1 7788991122||
-|Join_date|01 Jan 2023||
+|Contact No.|+1 7788991122||
+|Email|samhill@gmail.com||
+|Date of birth|01 Jan 1990||
+|Join date|01 Jan 2023||
 
-### 3. Blacklist
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Blacklist_No.(PK)|000001||
-|Order_no.(FK)|000001|The order made customer become blacklist|
-|First_Name|Sam||
-|Last_Name|Hill||
-|Date_of_birth|01 Jan 1990||
-|Address|1234-No.1 Rd Vancouver BC||
-|Contact_No.|+1 7788991122||
-|Date_Become_Blacklist|||
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|membership_no|Membership Number|store the id of a member|INT AUTO_INCREMENT|Primay Key||
+|membership_type|Membership Type|store the type of a membership|ENUM('Platinum', 'Gold', 'Silver', 'Bronze')|||
+|first_name|First Name|store the first name of a member|VARCHAR(64)|Candidate Key||
+|last_name|Last Name|store the last name of a member|VARCHAR(64)|Candidate Key||
+|address|Address|store the address of a customer|VARCHAR(200)|Candidate Key||
+|contact_no|Contact Number|store the contact number of a customer|VARCHAR(20)|Candidate Key||
+|email|Email|store the email of a customer|VARCHAR(100)|Candidate Key||
+|date_of_birth|Date of birth|store the date of birth of a customer|DATE|Candidate Key||
+|join_date|Join Date|store the date of a member apply for membership|DATE|Candidate Key||
 
-### 4. Branch
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Branch_no.|01||
-|Address|1234 No.2 Rd Vancouver BC||
-|Contact_No.|+1 7788991100||
-|Branch_Manager|Tom Li||
-
-### 5. Staff
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Employee ID(PK)|1001231936||
-|Staff Name|Jim Kirk||
-|Position|Salesperson||
-|Email|j.kirk@rentacar.ca||
-|Department|Sales||
-|Contact Number|+1 6043462944||
-|Hired Date|May 2, 2020||
-
-### 6. Car
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|VIN(PK)|10001||
-|Maintainance Order Number(FK)|2342342||
-|License Plate Number|B46 JP2||
-|Make/Model|Porsche 918||
+### 3. Car
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|VIN(PK)|10001||Jia Xi
+|Maintainance Order No(FK)|2342342||
+|Make|Porsche||
+|Model|918||
 |Year|2013||
+|License Plate Number|B46 JP2||
 |Car Type|sport||
-|Fuel type|disel||
-|Number of seats|4||
-|Number of doors|2|'couple'|
-|Car color|white||
+|Fuel Type|disel||
+|Car Color|white||
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|vin|VIN|store the VIN of a car|VARCHAR(30)|Primary Key||
+|latest_maintainance_no|Latest Maintainance Order Number|store the maintainance order number of the latest maintainance for a car|VARCHAR(30)|Foreign Key||
+|make|Make|store the manufacturer of a car|VARCHAR(30)|||
+|model|Model|store the model of a car|VARCHAR(30)|||
+|year|Year|store the year of manufacture of a car|VARCHAR(4)|||
+|license_plate_no|License Plate Number|store the license plate number of a car|VARCHAR(20)|Alternate Key||
+|car_type|Car Type|store the type of a car|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|||
+|fuel_type|Fuel Type|store the fuel type of a car|ENUM('Electric', 'Diesel', 'Regular', 'Midgrade', 'Premium')|||
+|car_color|Car Color|store the color of a car|VARCHAR(20)|||
+
+### 4. Maintainance
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Maintainance Order Number(PK)|2342342||Jia Xi
+|VIN(FK)|10001||
+|Maintainance Date|Febuary 2, 2023||
+|Maintainance Type|Engine Repair||
+|Maintainance Description|Engine swap with Imported engine for longevity||
+|Maintainance Cost|$2,234.33||
+|Maintainance Facility Name|ABC Company||
+|Technician Name|TIM Lau||
+|Return Date|Febuary 22, 2023||
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|maintainance_no|Maintainance Order Number|store the maintainance order number of maintainance for a car|VARCHAR(30)|Primary Key||
+|vin|VIN|store the VIN of a car|VARCHAR(30)|Foreign Key||
+|maintainance_date|Maintainance Date|store the date of the maintainance|DATE|||
+|maintainance_type|Maintainance Type|store the type of the maintainance|VARCHAR(100)|||
+|maintainance_description|Maintainance Description|store a short description of a maintainance|VARCHAR(500)|||
+|maintainance_cost|Maintainance Cost|store the cost of a maintainance|DECIMAL(8,2)|||
+|maintainance_facility_name|Maintainance Facility Name|store the name of maintainace company of a maintainance|VARCHAR(100)|||
+|technician_name|Technician Name|store the name of technician of a maintainance|VARCHAR(100)|||
+|return_date|Return Date|store the date of return of a maintainance|DATE|||
+
+### 5. Branch
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Branch No.(PK)|01||Haoqi
+|Branch Manager ID(FK)|100023423||
+|Address|1234 No.2 Rd Vancouver BC||
+|City|Vancouver||
+|Contact No.|+1 7788991100||
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
+
+### 6. Staff
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Staff ID(PK)|1001231936||Haoqi
+|First Name|Jim||
+|Last Name|Kirk||
+|Department|Sales||
+|Position|Salesperson||
+|Contact Number|+1 6043462944||
+|Email|j.kirk@rentacar.ca||
+|Hired Date|May 2, 2020||
+|Status|Full-time||
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
 
 ### 7. Rental Rate
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Base rental rate|$40|Per day|
-|Additional driver fee|Null||
-|Mileage fee|Unlimited||
-|Fuel surcharge|$10||
-|Young driver surcharge|Null|Apply for drivers under 25|
-|One-way rental fee|Null||
-|Child seat fee|$10||
-|GPS rental fee|Null||
-|Pickup and drop-off fees|$20||
-|Extra hour fee|Null||
-|Government or military rates|Null||
-|Membership or loyalty program rates|Null||
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Car_Type(PK)|sport||Haoqi
+|Daily_Rate|$30||
+|Weekly_Rate|$200||
+|Mothly_Rate|$700||
 
-### 8. Discount
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Discount code(PK)|0001||
-|Discount name|Black Friday|'Holiday Sale'|
-|Discount description|50% off||
-|Discount start date|11-11-2020||
-|Discount end date|12-1-2020||
-|Discount status| active|active, expired, or discontinued|
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
+
+### 8. Promotion
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Promotion Code(PK)|0001||Haoqi
+|Promotion Name|Black Friday|'Holiday Sale'|
+|Promotion Description|50% off||
+|Promotion Start Date|11-11-2020||
+|Promotion End Date|12-1-2020||
+|Promotion Status| active|active, expired, or discontinued|
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
 
 ### 9. Payment
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Transaction ID(PK)|B43434||
-|Payment method|credit card|'credit card, debit card, cash, check'|
-|Credit card type|visa||
-|Credit card expiration date|08-12-2027||
-|Credit card billing address|123 Tree Avenue, Vancouver BC v7p 3g2||
-|Credit card security code|522||
-|Credit card holder name|Big Bob||
-|Credit card number|2343 2342 4645 2342||
-|Payment status|Confirmed||
-|Payment date|08-13-2022||
-|Payment amount|$345.33||
-|Payment receipt number|32536235||
-|Refund status if any|Null||
-|Payment plan if any|Null||
-|Payment processing fee if any|Null||
-|Payment gateway transaction ID|DFSEFF232||
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Payment ID(PK)|B43434||Muochu
+|Payment Method|Visa||
+|Credit Card Number|2343 2342 4645 2342||
+|Credit Card Holder Name|Big Bob||
+|Credit Card Expiration Date|08-12-2027||
+|Credit Card Security Code|522||
+|Credit Card Billing Address|123 Tree Avenue, Vancouver BC v7p 3g2||
+|Payment Date|08-13-2022||
+|Payment Amount|$345.33||
+|Payment Receipt Number|32536235||
 
-### 10. Order       
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Rental Order Number(PK)|2394324||
-|Customer_ID(FK)|124134543||
-|Pick-Up Branch ID(FK)|2342342|
-|Return Branch ID(FK)|2342342||
-|Employee ID(FK)|1001231936||
-|Transaction ID(FK)|B43434||
-|Insurance|593054043||
-|Pick-up Date|January 20, 2023||
-|Pick-up Time|13:00||
-|Return Date|January 21, 2023||
-|Return Time|13:00||
-|Rental Duration|1 Day||
-|Total|$100||
-|Renting Purpose|Leisure||
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
 
-### 11. Insurance
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Policy Number(PK)|593054043||
-|Rental Order Number(FK)|2394324||
+### 10. Insurance
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Policy Number(PK)|593054043||Muochu
+|Customer ID(FK)|1||
 |VIN(FK)|10001||
-|Insurance Type|Collision||
+|Insurance Provider|AllState|Dropdown menu for Companies|
+|Insurance Type|Basic||
 |Policy Start Date|January 17, 2023||
 |Policy End date|January 20, 2023||
 |Insured Amount|$10,000||
-|Insurance Provider|AllState|Dropdown menu for Companies|
 |Premium|$170.00 CAD||
 |Deductible|$1,000||
 |Coverage Limit|$5,000||
 |Previous Claim|None|Dropdown menu for 'Yes' or 'None'|
 
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
 
-### 12. Maintainance
-|Field Name|Example of Data|Comments|
-|--|--|--|
-|Maintainance Order Number(PK)|2342342||
+### 11. Feedback
+### (preliminary list of subject)
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Feedback No.(PK)|0001||Muochu
+|Customer ID(FK)|000001||
+|Feedback Rating|5*||
+|Feedback comment|NULL||
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
+
+### 12. Order
+### (preliminary list of subject)       
+|Field Name|Example of Data|Comments|Person In Charge|
+|--|--|--|--|
+|Rental Order Number(PK)|2394324||Muochu
+|Customer_ID(FK)|124134543||
 |VIN(FK)|10001||
-|Rental Order Number(FK)|12414124|can be NULL|
-|Repair Date|Febuary 2, 2023||
-|Return Date|Febuary 22, 2023||
-|Repair Type|Engine Repair||
-|Repair Description|Engine swap with Imported engine for longevity||
-|Repair Cost|$2,234.33||
-|Warranty|Lifetime||
-|Repair Facility ID|349534345||
-|Technician Name|Carl Smith||
-|Technician ID|B4543045||
+|Pick-Up Branch ID(FK)|2342342|
+|Return Branch ID(FK)|2342342||
+|Staff ID(FK)|1001231936||
+|Rental Rate(FK)|sport||
+|Promotion Code(FK)|0001||
+|Insurance(FK)|593054043||
+|Payment(FK)|B43434||
+|Feedback(FK)|||
+|Pick-up Date|January 20, 2023||
+|Pick-up Time|13:00||
+|Return Date|January 21, 2023||
+|Return Time|13:00||
+|Total|$100||
+|Renting Purpose|Leisure||
+
+### (preliminary list of field)
+|Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
+|--|--|--|--|--|--|
+|||||||
+|||||||
+|||||||
+|||||||
