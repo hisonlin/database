@@ -3,9 +3,9 @@
 ## Subject
 |   |   |   |   |
 |--|--|--|--|
-|1. Customer|2. Membership|3. Blacklist|4. Branch|
-|5. Staff|6. Car|7. Rental rate|8. Discount|
-|9. Payment|10. Order|11. Insurance|12. Repair|
+|1. Customer|2. Membership|3. Car|4. Maintainance|
+|5. Branch|6. Staff|7. Rental rate|8. Promotion|
+|9. Payment|10. Insurance|11. Feedback|12. Order|
 
 ### 1. Customer
 ### (preliminary list of subject)
