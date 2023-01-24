@@ -206,13 +206,21 @@
 |Payment Amount|$345.33||
 |Payment Receipt Number|32536235||
 
+
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|||||||
-|||||||
-|||||||
-|||||||
+|payment_id|Payment ID|stores the id of a payment|INT AUTO_INCREMENT|Primary Key||
+|payment_method|Payment Method|stores the payment method used during transaction|VARCHAR(64)|Candidate Key||
+|cc_no|Credit Card Number|stores the credit card number|VARCHAR(20)|Candidate Key||
+|cc_holder_name|Credit Card Holder Name|stores the credit card holder name|VARCHAR(64)|Candidate Key||
+|cc_expire_date|Credit Card Expiration Date|stores the credit card expiration date|DATE|Candidate Key||
+|cc_security_code|Credit Card Security Code|stores the credit card security code|VARCHAR(10)|Candidate Key||
+|cc_billing_address|Credit Card Billing Address|stores the credit card billing address|VARCHAR(200)|Candidate Key||
+|payment_date|Payment Date|stores the date of payment made|DATE|Candidate Key||
+|payment_amount|Payment Amount|stores the total amount from transaction|VARCHAR(20)|Candidate Key||
+|payment_receipt_no|Payment Receipt Number|stores payment receipt number|VARCHAR(20)|Alternate Key||
+
 
 ### 10. Insurance
 ### (preliminary list of subject)
@@ -234,10 +242,18 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|||||||
-|||||||
-|||||||
-|||||||
+|policy_no|Policy Number|stores the insurance policy number purchased by the customer|INT AUTO_INCREMENT|Primary Key||
+||Customer ID|||Foeign Key||
+||VIN|||||
+||Insurance Provider|||||
+||Insurance Type|||||
+||Policy Start Date||DATE|||
+||Policy End date||DATE|||
+||Insured Amount|||||
+||Premium|||||
+||Deductible|||||
+||Coverage Limit|||||
+||Previous Claim|||||
 
 ### 11. Feedback
 ### (preliminary list of subject)
