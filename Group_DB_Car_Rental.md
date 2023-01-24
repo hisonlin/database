@@ -47,11 +47,7 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |customer_id|Customer ID|store the id of a customer|INT AUTO_INCREMENT|Primay Key||
-<<<<<<< HEAD
 |membership_no|Membership Number|store the number of a member|VARCHAR(20)|Foreign Key|membership table|
-=======
-|membership_no|Membership Number|store the number of a member|VARCHAR(20)|Foreign Key||
->>>>>>> f55251339ea004659b3c78afa175bd6f07d8f138
 |first_name|First Name|store the first name of a customer|VARCHAR(64)|Candidate Key||
 |last_name|Last Name|store the last name of a customer|VARCHAR(64)|Candidate Key||
 |address|Address|store the address of a customer|VARCHAR(200)|Candidate Key||
