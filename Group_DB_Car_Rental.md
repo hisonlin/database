@@ -24,7 +24,7 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|custome_id|Customer ID|store the id of a customer|INT AUTO_INCREMENT|Primay Key||
+|customer_id|Customer ID|store the id of a customer|INT AUTO_INCREMENT|Primay Key||
 |membership_no|Membership Number|store the number of a member|VARCHAR(20)|Foreign Key||
 |first_name|First Name|store the first name of a customer|VARCHAR(64)|Candidate Key||
 |last_name|Last Name|store the last name of a customer|VARCHAR(64)|Candidate Key||
@@ -230,7 +230,7 @@
 |Customer ID(FK)|1||
 |VIN(FK)|10001||
 |Insurance Provider|AllState|Dropdown menu for Companies|
-|Insurance Type|Basic||
+|Insurance Type|Comprehension||
 |Policy Start Date|January 17, 2023||
 |Policy End date|January 20, 2023||
 |Insured Amount|$10,000||
@@ -243,17 +243,17 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |policy_no|Policy Number|stores the insurance policy number purchased by the customer|INT AUTO_INCREMENT|Primary Key||
-||Customer ID|||Foeign Key||
-||VIN|||||
-||Insurance Provider|||||
-||Insurance Type|||||
-||Policy Start Date||DATE|||
-||Policy End date||DATE|||
-||Insured Amount|||||
-||Premium|||||
-||Deductible|||||
-||Coverage Limit|||||
-||Previous Claim|||||
+|customer_id|Customer ID|stores the id of a customer|INT AUTO_INCREMENT|Foeign Key||
+|vin|VIN|stores the VIN(Vehicle Insurance Number) of the car|VARCHAR(30)|Candidate Key||
+|insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(30)|Candidate Key||
+|insurance_type|Insurance Type|stores the specfic type of coverage(e.g. liability, collision, comprehension, etc.)|VARCHAR(30)|Candidate Key||
+|policy_start_date|Policy Start Date|stores the start date for the insured coverage|DATE|Candidate Key||
+|policy_end_date|Policy End date|stores the end date for the insured coverage|DATE|Candidate Key||
+|insured_amount|Insured Amount|stores the total insurance coverage amount|VARCHAR(20)|Candidate Key||
+|premium|Premium|stores the premium cost of the insurance coverage|VARCHAR(20)|Candidate Key||
+|deductible|Deductible|stores the amount the customer must pay out-of pocket as deductible before the insurance policy begins|VARCHAR(20)|Candidate Key||
+||Coverage Limit|stores the coverage limit of the insurance|VARCHAR(20)|Candidate Key||
+||Previous Claim|stores any previous made insurance claim|VARCHAR(30)|Candidate Key||
 
 ### 11. Feedback
 ### (preliminary list of subject)
