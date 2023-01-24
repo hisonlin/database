@@ -242,7 +242,6 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-
 |payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Primary Key|transation company|
 |payment_method|Payment Method|stores the payment method used during transaction|VARCHAR(64)|Candidate Key||
 |cc_no|Credit Card Number|stores the credit card number|VARCHAR(20)|Candidate Key||
