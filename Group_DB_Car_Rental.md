@@ -150,7 +150,7 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|||||||
+|staff_id||stores the ID number of the staff member facilitating the transaction|VARCHAR(20)|||
 |||||||
 |||||||
 |||||||
@@ -159,7 +159,7 @@
 ### (preliminary list of subject)
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
-|Car_Type(PK)|sport||Haoqi
+|Rental_Type(PK)|sport||Haoqi
 |Daily_Rate|$30||
 |Weekly_Rate|$200||
 |Mothly_Rate|$700||
@@ -210,7 +210,7 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|payment_id|Payment ID|stores the id of a payment|INT AUTO_INCREMENT|Primary Key||
+|payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Primary Key||
 |payment_method|Payment Method|stores the payment method used during transaction|VARCHAR(64)|Candidate Key||
 |cc_no|Credit Card Number|stores the credit card number|VARCHAR(20)|Candidate Key||
 |cc_holder_name|Credit Card Holder Name|stores the credit card holder name|VARCHAR(64)|Candidate Key||
@@ -242,11 +242,11 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|policy_no|Policy Number|stores the insurance policy number purchased by the customer|INT AUTO_INCREMENT|Primary Key||
-|customer_id|Customer ID|stores the id of a customer|INT AUTO_INCREMENT|Foeign Key||
+|policy_no|Policy Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Primary Key||
+|customer_id|Customer ID|stores the id of a customer|VARCHAR(20)|Foeign Key||
 |vin|VIN|stores the VIN(Vehicle Insurance Number) of the car|VARCHAR(30)|Candidate Key||
 |insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(30)|Candidate Key||
-|insurance_type|Insurance Type|stores the specfic type of coverage(e.g. liability, collision, comprehension, etc.)|VARCHAR(30)|Candidate Key||
+|insurance_type|Insurance Type|stores the specfic type of coverage(e.g. liability, collision, comprehension, etc.)|ENUM('Liability', 'Collision', 'Comprehension', 'Personal Accident Insurance', 'Personal Effect Coverage', 'Loss of Use Coverage', 'Towing and Labor Coverage', 'Roadside Assistance')|Candidate Key||
 |policy_start_date|Policy Start Date|stores the start date for the insured coverage|DATE|Candidate Key||
 |policy_end_date|Policy End date|stores the end date for the insured coverage|DATE|Candidate Key||
 |insured_amount|Insured Amount|stores the total insurance coverage amount|VARCHAR(20)|Candidate Key||
@@ -268,7 +268,7 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |feedback_no|Feedback No.|stores the id of the feedback|INT AUTO_INCREMENT|Primary Key||
-|customer_id|Customer ID|stores the id of a customer|INT AUTO_INCREMENT|Foreign Key||
+|customer_id|Customer ID|stores the id of a customer|VARCHAR(20)|Foreign Key||
 |feedback_rating|stores the rating of the customer's feedback|Feedback Rating|VARCHAR(10)|Candidate Key||
 |feedback_comment|stores the comment given by the customer's feedback|Feedback comment|VARCHAR(200)|Candidate Key||
 
@@ -282,37 +282,37 @@
 |Pick-Up Branch ID(FK)|2342342|
 |Return Branch ID(FK)|2342342||
 |Staff ID(FK)|1001231936||
-|Rental Rate(FK)|sport||
+|Rental Type(FK)|sport||
 |Promotion Code(FK)|0001||
-|Insurance(FK)|593054043||
-|Payment(FK)|B43434||
-|Feedback(FK)|||
+|Policy Number(FK)|593054043||
+|Payment ID (FK)|B43434||
+|Feedback No(FK)|||
 |Pick-up Date|January 20, 2023||
 |Pick-up Time|13:00||
 |Return Date|January 21, 2023||
 |Return Time|13:00||
-|Total|$100||
+|Payment Amount|$100||
 |Renting Purpose|Leisure||
 
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|rental_order_no|Rental Order Number|||||
-|customer_id|Customer_ID|||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
-|||||||
+|rental_order_no|Rental Order Number|stores the rental order number|INT AUTO_INCREMENT|Primary Key||
+|customer_id|Customer_ID|stores the id of a customer|VARCHAR(20)|Foreign Key||
+|vin|VIN|stores the VIN(Vehicle Identification Number) of the vehicle|VARCHAR(30)|Foreign Key||
+|pick_up_branch|Pick-Up Branch|stores the branch name for the car pick-up|VARCHAR(64)|Foreign Key||
+|return_branch|Return Branch|stores the branch name for the car return|VARCHAR(64)|Foreign Key||
+|staff_id|Staff ID|stores the ID number of the staff member facilitating the transaction|VARCHAR(20)|||
+|rental_type|Rental Type|stores the type of car rental||Foreign Key||
+|promotion_code|Promotion Code|stores the promotion code used during transaction|VARCHAR(20)|Foreign Key||
+|policy_no|Policy Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Foreign Key||
+|payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Foreign Key||
+|feedback_no|Feedback Number|stores the id of the feedback|VARCHAR(20)|Foreign Key||
+|pick_up_date|Pick-up Date|stores the date of the car pick up|DATE|Candidate Key||
+|pick_up_time|Pick-up time||TIME|stores the time of the car pick up|Candidate Key||
+|return_date|Return Date|stores the date of the car return|DATE|Candidate Key||
+|return_time|Return time|stores the time of the car return|TIME|Candidate Key||
+|payment_amount|Payment Amount|stores the|stores the total amount from transaction|VARCHAR(20)|Candidate Key||
+|renting_purpose|Renting Purpose|stores the purpose of the car rental|VARCHAR(30)|Candidate Key||
+
 
