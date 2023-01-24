@@ -252,8 +252,8 @@
 |insured_amount|Insured Amount|stores the total insurance coverage amount|VARCHAR(20)|Candidate Key||
 |premium|Premium|stores the premium cost of the insurance coverage|VARCHAR(20)|Candidate Key||
 |deductible|Deductible|stores the amount the customer must pay out-of pocket as deductible before the insurance policy begins|VARCHAR(20)|Candidate Key||
-||Coverage Limit|stores the coverage limit of the insurance|VARCHAR(20)|Candidate Key||
-||Previous Claim|stores any previous made insurance claim|VARCHAR(30)|Candidate Key||
+|coverage_limit|Coverage Limit|stores the coverage limit of the insurance|VARCHAR(20)|Candidate Key||
+|prev_claim|Previous Claim|stores any previous made insurance claim|VARCHAR(30)|Candidate Key||
 
 ### 11. Feedback
 ### (preliminary list of subject)
@@ -267,10 +267,10 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|||||||
-|||||||
-|||||||
-|||||||
+|feedback_no|Feedback No.|stores the id of the feedback|INT AUTO_INCREMENT|Primary Key||
+|customer_id|Customer ID|stores the id of a customer|INT AUTO_INCREMENT|Foreign Key||
+|feedback_rating|stores the rating of the customer's feedback|Feedback Rating|VARCHAR(10)|Candidate Key||
+|feedback_comment|stores the comment given by the customer's feedback|Feedback comment|VARCHAR(200)|Candidate Key||
 
 ### 12. Order
 ### (preliminary list of subject)       
@@ -297,7 +297,22 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
+|rental_order_no|Rental Order Number|||||
+|customer_id|Customer_ID|||||
 |||||||
 |||||||
 |||||||
 |||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+|||||||
+
