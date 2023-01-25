@@ -74,7 +74,7 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |membership_no|Membership Number|store the id of a member|INT AUTO_INCREMENT|Primay Key||
-|membership_type|Membership Type|store the type of a membership|ENUM('Platinum', 'Gold', 'Silver', 'Bronze')|||
+|membership_type|Membership Type|store the type of a membership|ENUM('Platinum', 'Gold', 'Silver', 'Bronze')|Candidate Key||
 |first_name|First Name|store the first name of a member|VARCHAR(64)|Candidate Key||
 |last_name|Last Name|store the last name of a member|VARCHAR(64)|Candidate Key||
 |address|Address|store the address of a customer|VARCHAR(200)|Candidate Key||
@@ -131,13 +131,13 @@
 |--|--|--|--|--|--|
 |maintainance_no|Maintainance Order Number|store the maintainance order number of maintainance for a car|VARCHAR(30)|Primary Key|maintainance company|
 |vin|VIN|store the VIN of a car|VARCHAR(30)|Foreign Key|car table|
-|maintainance_date|Maintainance Date|store the date of the maintainance|DATE|||
-|maintainance_type|Maintainance Type|store the type of the maintainance|VARCHAR(100)|||
-|maintainance_description|Maintainance Description|store a short description of a maintainance|VARCHAR(500)|||
-|maintainance_cost|Maintainance Cost|store the cost of a maintainance|DECIMAL(8,2)|||
-|maintainance_facility_name|Maintainance Facility Name|store the name of maintainace company of a maintainance|VARCHAR(100)|||
-|technician_name|Technician Name|store the name of technician of a maintainance|VARCHAR(100)|||
-|return_date|Return Date|store the date of return of a maintainance|DATE|||
+|maintainance_date|Maintainance Date|store the date of the maintainance|DATE|Candidate Key||
+|maintainance_type|Maintainance Type|store the type of the maintainance|VARCHAR(100)|Candidate Key||
+|maintainance_description|Maintainance Description|store a short description of a maintainance|VARCHAR(500)|Candidate Key||
+|maintainance_cost|Maintainance Cost|store the cost of a maintainance|DECIMAL(8,2)|Candidate Key||
+|maintainance_facility_name|Maintainance Facility Name|store the name of maintainace company of a maintainance|VARCHAR(100)|Candidate Key||
+|technician_name|Technician Name|store the name of technician of a maintainance|VARCHAR(100)|Candidate Key||
+|return_date|Return Date|store the date of return of a maintainance|DATE|Candidate Key||
 
 ### 5. Branch
 ### (preliminary list of subject)
@@ -153,10 +153,10 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |branch_no.|Branch Number|stores the number of a branch|INT AUTO_INCREMENT|Primary Key||
-|manage_id|Branch Manager ID|The manager of the branch|VARCHAR(20)|Foreign Key|staff table|
-|address|Address|stores the address of a branch|VARCHAR(200)|CK||
-|city|City|stores the city of a branch|VARCHAR(30)|CK||
-|contact_no|Contact Number|store the contact number of a branch|VARCHAR(20)|CK||
+|manager_id|Branch Manager ID|The manager of the branch|VARCHAR(20)|Foreign Key|staff table|
+|address|Address|stores the address of a branch|VARCHAR(200)|Candidate Key||
+|city|City|stores the city of a branch|VARCHAR(30)|Candidate Key||
+|contact_no|Contact Number|store the contact number of a branch|VARCHAR(20)|Candidate Key||
 
 ### 6. Staff
 ### (preliminary list of subject)
@@ -175,15 +175,15 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|staff_id|Staff ID|stores the id of a staffINT(6)|Primary Key||
-|first_name|First Name|stores the first name of a staff|VARCHAR(64)|CK||
-|last_name|Last Name|stores the last name of a staff|VARCHAR(64)|CK||
-|department|Department|stores the department of a staff|VARCHAR(20)|CK||
-|position|Position|stores the position of a staff|VARCHAR(20)|CK||
-|contact_no|Contact Number|stores the contact number of a staff|INT(20)|CK||
-|email|Email|stores the email of a staff|VARCHAR(50)|CK||
-|hired_date|Hired Date|stores the hired date of a staff|DATE|CK||
-|status|Status|stores the status of a staff|ENUM ("Full-time", "Part time", "Terminated")|CK||
+|staff_id|Staff ID|stores the id of a staff|INT AUTO_INCREMENT|Primary Key||
+|first_name|First Name|stores the first name of a staff|VARCHAR(64)|Candidate Key||
+|last_name|Last Name|stores the last name of a staff|VARCHAR(64)|Candidate Key||
+|department|Department|stores the department of a staff|VARCHAR(30)|Candidate Key||
+|position|Position|stores the position of a staff|VARCHAR(20)|Candidate Key||
+|contact_no|Contact Number|stores the contact number of a staff|VARCHAR(20)|Candidate Key||
+|email|Email|stores the email of a staff|VARCHAR(100)|Candidate Key||
+|hired_date|Hired Date|stores the hired date of a staff|DATE|Candidate Key||
+|status|Status|stores the status of a staff|ENUM ("Full-time", "Part time", "Terminated")|Candidate Key||
 
 ### 7. Rental Rate
 ### (preliminary list of subject)
@@ -198,9 +198,9 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |rental_type||stores the rental type of a rental|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|Primary Key||
-|daily_rate|Daily Rate|stores the daily rate of a rental|DECIMAL(5,2)|CK||
-|weekly_rate|Weekly Rate|stores the weekly rate of a rental|DECIMAL(5,2)|CK||
-|mothly_rate|Mothly Rate|stores the monthly rate of a rental|DECIMAL(6,2)|CK||
+|daily_rate|Daily Rate|stores the daily rate of a rental|DECIMAL(5,2)|||
+|weekly_rate|Weekly Rate|stores the weekly rate of a rental|DECIMAL(5,2)|||
+|mothly_rate|Mothly Rate|stores the monthly rate of a rental|DECIMAL(6,2)|||
 
 ### 8. Promotion
 ### (preliminary list of subject)
@@ -217,11 +217,11 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |promotion_code|Promotion Code|stores the promotion code of a promotion|VARCHAR(10)|Primary Key||
-|Promotion_Name|Promotion Name|stores the name of a promotion|VARCHAR(30)|CK||
-|promotion_description|Promotion Description|stores the description of a promotion|VARCHAR(30)|CK||
-|promotion_start_date|Promotion Start Date|stores the start date of a promotion|DATE|CK||
-|promotion_end_date|Promotion End Date|stores the end date of a promotion|DATE|CK||
-|promotion_Status|Promotion Status|stores the status of a promotion|ENUM ("active", "expired", "discontinued")|CK||
+|promotion_name|Promotion Name|stores the name of a promotion|VARCHAR(50)|Candidate Key||
+|promotion_description|Promotion Description|stores the description of a promotion|VARCHAR(30)|Candidate Key||
+|promotion_start_date|Promotion Start Date|stores the start date of a promotion|DATE|Candidate Key||
+|promotion_end_date|Promotion End Date|stores the end date of a promotion|DATE|Candidate Key||
+|promotion_status|Promotion Status|stores the status of a promotion|ENUM ("active", "expired", "discontinued")|Candidate Key||
 
 ### 9. Payment
 ### (preliminary list of subject)
@@ -238,7 +238,6 @@
 |Payment Amount|$345.33|||
 |Payment Receipt Number|32536235|||
 
-
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
@@ -250,7 +249,7 @@
 |cc_security_code|Credit Card Security Code|stores the credit card security code|VARCHAR(10)|Candidate Key||
 |cc_billing_address|Credit Card Billing Address|stores the credit card billing address|VARCHAR(200)|Candidate Key||
 |payment_date|Payment Date|stores the date of payment made|DATE|Candidate Key||
-|payment_amount|Payment Amount|stores the total amount from transaction|VARCHAR(20)|Candidate Key||
+|payment_amount|Payment Amount|stores the total amount from transaction|DECIMAL(8,2)|Candidate Key||
 |payment_receipt_no|Payment Receipt Number|stores payment receipt number|VARCHAR(20)|Alternate Key||
 
 ### 10. Insurance
@@ -276,15 +275,15 @@
 |policy_no|Policy Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Primary Key|insurance company|
 |customer_id|Customer ID|stores the id of a customer|VARCHAR(20)|Foreign Key|customer table|
 |vin|VIN|stores the VIN(Vehicle Insurance Number) of the car|VARCHAR(30)|Foreign Key|car table|
-|insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(30)|Candidate Key||
+|insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(50)|Candidate Key||
 |insurance_type|Insurance Type|stores the specfic type of coverage(e.g. liability, collision, comprehension, etc.)|ENUM('Liability', 'Collision', 'Comprehension', 'Personal Accident Insurance', 'Personal Effect Coverage', 'Loss of Use Coverage', 'Towing and Labor Coverage', 'Roadside Assistance')|Candidate Key||
 |policy_start_date|Policy Start Date|stores the start date for the insured coverage|DATE|Candidate Key||
 |policy_end_date|Policy End date|stores the end date for the insured coverage|DATE|Candidate Key||
 |insured_amount|Insured Amount|stores the total insurance coverage amount|VARCHAR(20)|Candidate Key||
-|premium|Premium|stores the premium cost of the insurance coverage|VARCHAR(20)|Candidate Key||
+|premium|Premium|stores the premium cost of the insurance coverage|DECIMAL(7,2)|Candidate Key||
 |deductible|Deductible|stores the amount the customer must pay out-of pocket as deductible before the insurance policy begins|VARCHAR(20)|Candidate Key||
 |coverage_limit|Coverage Limit|stores the coverage limit of the insurance|VARCHAR(20)|Candidate Key||
-|prev_claim|Previous Claim|stores any previous made insurance claim|VARCHAR(30)|Candidate Key||
+|prev_claim|Previous Claim|stores any previous made insurance claim|ENUM ("YES", "NONE")|Candidate Key||
 
 ### 11. Feedback
 ### (preliminary list of subject)
@@ -301,7 +300,7 @@
 |feedback_no|Feedback No.|stores the id of the feedback|INT AUTO_INCREMENT|Primary Key||
 |customer_id|Customer ID|stores the id of a customer|VARCHAR(20)|Foreign Key|customer table|
 |feedback_rating|stores the rating of the customer's feedback|Feedback Rating|VARCHAR(10)|Candidate Key||
-|feedback_comment|stores the comment given by the customer's feedback|Feedback comment|VARCHAR(200)|Candidate Key||
+|feedback_comment|stores the comment given by the customer's feedback|Feedback comment|VARCHAR(500)|Candidate Key||
 
 ### 12. Order
 ### (preliminary list of subject)       
@@ -340,11 +339,15 @@
 |payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Foreign Key|payment table|
 |feedback_no|Feedback Number|stores the id of the feedback|VARCHAR(20)|Foreign Key|feedback table|
 |pick_up_date|Pick-up Date|stores the date of the car pick up|DATE|Candidate Key||
-|pick_up_time|Pick-up time||TIME|stores the time of the car pick up|Candidate Key||
+|pick_up_time|Pick-up time|stores the time of the car pick up|TIME|Candidate Key||
 |return_date|Return Date|stores the date of the car return|DATE|Candidate Key||
 |return_time|Return time|stores the time of the car return|TIME|Candidate Key||
-|payment_amount|Payment Amount|stores the|stores the total amount from transaction|VARCHAR(20)|Candidate Key||
+|payment_amount|Payment Amount|stores the total amount from transaction|VARCHAR(20)|Candidate Key||
 |renting_purpose|Renting Purpose|stores the purpose of the car rental|VARCHAR(30)|Candidate Key||
+
+## ERD
+Relative: 
+Relative img/ERD_Car_Rental.png
 
 ## Normalization
 ### Rental Order Table
@@ -357,7 +360,7 @@
 #### *Separate car into car_make, car_model and car_year
 #### *Separate rental_start into pickup _date and pickup_time
 #### *Separate rental_end into return_date and return_time
-|order_no|customer_first_name|customer_last_name|customer_address|customer_contact_no|customer_email|customer_data_of_birth|drivers_license_no|membership|car_make|car_model|car_year|license_plate_no|VIN|latest_maintainance|rental_date|rental_time|pickup_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|feedback|
+|order_no|customer_first_name|customer_last_name|customer_address|customer_contact_no|customer_email|customer_data_of_birth|drivers_license_no|membership|car_make|car_model|car_year|license_plate_no|VIN|latest_maintainance|pick_up_date|pisk_u[_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|feedback|
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |1|Hison|Lin|1234 Main Street Vancouver BC V5P 0H5|7788990011|hison@gmail.com|1990/08/09|123456789|Gold|Honda|Civic|2018|AB1234C|987654321|Engine Repair|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|5*|
 
@@ -367,12 +370,12 @@
 #### *Appoint primary key and foreign key for both tables 
 
 ### Customer:
-|customer_first_name|customer_last_name|customer_address|customer_contact_no|customer_email|customer_data_of_birth|drivers_license_no|membership|feedback|rental_date|rental_time|pickup_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(PK)|Vin(FK)|
+|customer_first_name|customer_last_name|customer_address|customer_contact_no|customer_email|customer_data_of_birth|drivers_license_no|membership|feedback|pick_up_date|pick_u[_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(PK)|Vin(FK)|
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |Hison|Lin|1234 Main Street Vancouver BC V5P 0H5|7788990011|hison@gmail.com|1990/08/09|123456789|Gold|5*|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|1|987654321|
 
 ### Car:
-|VIN(PK)|car_make|car_model|car_year|license_plate_no|latest_maintainance|rental_date|rental_time|pickup_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(FK)
+|VIN(PK)|car_make|car_model|car_year|license_plate_no|latest_maintainance|pick_up_date|pick_up_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(FK)
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |Honda|Civic|2018|AB1234C|987654321|Engine Repair|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|1|
 
@@ -394,7 +397,7 @@
 |--|--|--|--|--|--|--|--|--|
 
 ### 5. Branch
-|branch_no(PK)|branch_manager_id(FK)|address|city|contact_no|
+|branch_no(PK)|manager_id(FK)|address|city|contact_no|
 |--|--|--|--|--|
 
 ### 6. Staff
@@ -410,11 +413,11 @@
 |--|--|--|--|--|--|
 
 ### 9. Payment
-|payment_id(PK)|payment_method|credit_card_no|credit_card_holder_name|credit_card_expiration_date|credit_card_security_code|credit_card_billing_address|payment_date|payment_amount|payment_receipt_number|
+|payment_id(PK)|payment_method|cc_no|cc_holder_name|cc_expiration_date|cc_security_code|cc_billing_address|payment_date|payment_amount|payment_receipt_number|
 |--|--|--|--|--|--|--|--|--|--|
 
 ### 10. Insurance
-|policy_no(PK)|customer_id(FK)|vin(FK)|insurance_provider|insurance_type|policy_start_date|policy_end_date|insured_amount|premium|deductible|coverage_limit||previous_claim|
+|policy_no(PK)|customer_id(FK)|vin(FK)|insurance_provider|insurance_type|policy_start_date|policy_end_date|insured_amount|premium|deductible|coverage_limit||prev_claim|
 |--|--|--|--|--|--|--|--|--|--|--|--|--|
 
 ### 11. Feedback
@@ -422,5 +425,5 @@
 |--|--|--|--|
 
 ### 12. Order
-|retnal_order_no(PK)|customer_id(FK)|vin(FK)|pickup_branch_id(FK)|return_branch_id(FK)|staff_id(FK)|rental_type(FK)|promotion_code(FK)|insurance(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|payment_amount|renting_purpose|
+|retnal_order_no(PK)|customer_id(FK)|vin(FK)|pick_up_branch_id(FK)|return_branch_id(FK)|staff_id(FK)|rental_type(FK)|promotion_code(FK)|insurance(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|payment_amount|renting_purpose|
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
