@@ -425,5 +425,5 @@ Relative img/ERD_Car_Rental.png
 |--|--|--|--|
 
 ### 12. Order
-|retnal_order_no(PK)|customer_id(FK)|vin(FK)|pick_up_branch_id(FK)|return_branch_id(FK)|staff_id(FK)|rental_type(FK)|promotion_code(FK)|insurance(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|payment_amount|renting_purpose|
+|rental_order_no(PK)|customer_id(FK)|vin(FK)|pick_up_branch_id(FK)|return_branch_id(FK)|staff_id(FK)|rental_type(FK)|promotion_code(FK)|insurance(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|payment_amount|renting_purpose|
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
