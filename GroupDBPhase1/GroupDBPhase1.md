@@ -34,7 +34,7 @@
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
 |Customer ID(PK)|000001||Jia Xi|
-|Membership No.(FK)|000001|||
+|Membership No.(FK)|000001|can be NULL||
 |First Name|Sam|||
 |Last Name|Hill|||
 |Address|1234-No.1 Rd Vancouver BC|||
@@ -61,26 +61,16 @@
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
 |Membership No.(PK)|1||Jia Xi|
+|Customer ID(FK)|000001||Jia Xi|
 |Membership Type|Gold|(Platinum, Gold, Silver, Bronze, Null)||
-|First Name|Sam|||
-|Last Name|Hill|||
-|Address|1234-No.1 Rd Vancouver BC|||
-|Contact No.|+1 7788991122|||
-|Email|samhill@gmail.com|||
-|Date of birth|01 Jan 1990|||
 |Join date|01 Jan 2023|||
 
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |membership_no|Membership Number|store the id of a member|INT AUTO_INCREMENT|Primay Key||
+|customer_id|Customer ID|store the id of a customer|VARCHAR(20)|Foreign Key|customer table|
 |membership_type|Membership Type|store the type of a membership|ENUM('Platinum', 'Gold', 'Silver', 'Bronze')|Candidate Key||
-|first_name|First Name|store the first name of a member|VARCHAR(64)|Candidate Key||
-|last_name|Last Name|store the last name of a member|VARCHAR(64)|Candidate Key||
-|address|Address|store the address of a customer|VARCHAR(200)|Candidate Key||
-|contact_no|Contact Number|store the contact number of a customer|VARCHAR(20)|Candidate Key||
-|email|Email|store the email of a customer|VARCHAR(100)|Candidate Key||
-|date_of_birth|Date of birth|store the date of birth of a customer|DATE|Candidate Key||
 |join_date|Join Date|store the date of a member apply for membership|DATE|Candidate Key||
 
 ### 3. Car
@@ -88,12 +78,12 @@
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
 |VIN(PK)|10001||Jia Xi|
-|Maintainance Order No(FK)|2342342|||
+|Rentel Rate Type(FK)|sport|||
+|Maintainance Order No(FK)|2342342|can be null||
 |Make|Porsche|||
 |Model|918|||
 |Year|2013|||
 |License Plate Number|B46 JP2|||
-|Car Type|sport|||
 |Fuel Type|disel|||
 |Car Color|white|||
 |Seats|5|||
@@ -102,12 +92,12 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |vin|VIN|store the VIN of a car|VARCHAR(30)|Primary Key||
-|latest_maintainance_no|Latest Maintainance Order Number|store the maintainance order number of the latest maintainance for a car|VARCHAR(30)|Foreign Key|maintainance table|
+|rental_rate_type|Rental Rate Type|stores the rental type of a rental|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|Foreign Key|rental rate table|
+|maintainance_no|Latest Maintainance Order Number|store maintainance order number of the latest maintainance for a car|VARCHAR(30)|Foreign Key|maintainance table|
 |make|Make|store the manufacturer of a car|VARCHAR(30)|||
 |model|Model|store the model of a car|VARCHAR(30)|||
 |year|Year|store the year of manufacture of a car|VARCHAR(4)|||
 |license_plate_no|License Plate Number|store the license plate number of a car|VARCHAR(20)|Alternate Key||
-|car_type|Car Type|store the type of a car|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|||
 |fuel_type|Fuel Type|store the fuel type of a car|ENUM('Electric', 'Diesel', 'Regular', 'Midgrade', 'Premium')|||
 |car_color|Car Color|store the color of a car|VARCHAR(20)|||
 |seats|Seats|store the amount of seats of a car|VARCHAR(2)|||
@@ -152,8 +142,8 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|branch_no.|Branch Number|stores the number of a branch|INT AUTO_INCREMENT|Primary Key||
-|manager_id|Branch Manager ID|The manager of the branch|VARCHAR(20)|Foreign Key|staff table|
+|branch_no|Branch Number|stores the number of a branch|INT AUTO_INCREMENT|Primary Key||
+|staff_id|Branch Manager ID|stores the staff id of the manager of a branch|VARCHAR(20)|Foreign Key|staff table|
 |address|Address|stores the address of a branch|VARCHAR(200)|Candidate Key||
 |city|City|stores the city of a branch|VARCHAR(30)|Candidate Key||
 |contact_no|Contact Number|store the contact number of a branch|VARCHAR(20)|Candidate Key||
@@ -163,6 +153,7 @@
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
 |Staff ID(PK)|123456||Haoqi
+|Branch No.(PK)|001|||
 |First Name|Jim||
 |Last Name|Kirk||
 |Department|Sales||
@@ -176,6 +167,7 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |staff_id|Staff ID|stores the id of a staff|INT AUTO_INCREMENT|Primary Key||
+|branch_no|Branch Number|stores the number of a branch|VARCHAR(20)|Foreign Key||
 |first_name|First Name|stores the first name of a staff|VARCHAR(64)|Candidate Key||
 |last_name|Last Name|stores the last name of a staff|VARCHAR(64)|Candidate Key||
 |department|Department|stores the department of a staff|VARCHAR(30)|Candidate Key||
@@ -189,7 +181,7 @@
 ### (preliminary list of subject)
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
-|Rental Type(PK)|sport||Haoqi
+|Rental Rate Type(PK)|sport||Haoqi
 |Daily Rate|$30||
 |Weekly Rate|$200||
 |Mothly Rate|$700||
@@ -197,7 +189,7 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|rental_type||stores the rental type of a rental|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|Primary Key||
+|rental_rate_type|Rental Rate Type|stores the rental type of a rental|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|Primary Key||
 |daily_rate|Daily Rate|stores the daily rate of a rental|DECIMAL(5,2)|||
 |weekly_rate|Weekly Rate|stores the weekly rate of a rental|DECIMAL(5,2)|||
 |mothly_rate|Mothly Rate|stores the monthly rate of a rental|DECIMAL(6,2)|||
@@ -228,6 +220,7 @@
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
 |Payment ID(PK)|B43434||Muochu|
+|Order Number(FK)|2394324|||
 |Payment Method|Visa|||
 |Credit Card Number|2343 2342 4645 2342|||
 |Credit Card Holder Name|Big Bob|||
@@ -242,6 +235,7 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Primary Key|transation company|
+|order_no|Order Number|stores the rental order number related to the oayment|VARCHAR(20)|Foreign Key|order table|
 |payment_method|Payment Method|stores the payment method used during transaction|VARCHAR(64)|Candidate Key||
 |cc_no|Credit Card Number|stores the credit card number|VARCHAR(20)|Candidate Key||
 |cc_holder_name|Credit Card Holder Name|stores the credit card holder name|VARCHAR(64)|Candidate Key||
@@ -256,7 +250,8 @@
 ### (preliminary list of subject)
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
-|Policy Number(PK)|593054043||Muochu|
+|Insurance Number(PK)|593054043||Muochu|
+|Order Number(FK)|2394324|||
 |Customer ID(FK)|1|||
 |VIN(FK)|10001|||
 |Insurance Provider|AllState|Dropdown menu for Companies||
@@ -272,7 +267,8 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|policy_no|Policy Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Primary Key|insurance company|
+|insurance_no|Insurance Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Primary Key|insurance company|
+|order_no|Order Number|stores the rental order number related to the insurance|VARCHAR(20)|Foreign Key|order table|
 |customer_id|Customer ID|stores the id of a customer|VARCHAR(20)|Foreign Key|customer table|
 |vin|VIN|stores the VIN(Vehicle Insurance Number) of the car|VARCHAR(30)|Foreign Key|car table|
 |insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(50)|Candidate Key||
@@ -291,6 +287,7 @@
 |--|--|--|--|
 |Feedback No.(PK)|0001||Muochu|
 |Customer ID(FK)|000001|||
+|Order Number(FK)|2394324|||
 |Feedback Rating|5*|||
 |Feedback comment|NULL|||
 
@@ -299,24 +296,25 @@
 |--|--|--|--|--|--|
 |feedback_no|Feedback No.|stores the id of the feedback|INT AUTO_INCREMENT|Primary Key||
 |customer_id|Customer ID|stores the id of a customer|VARCHAR(20)|Foreign Key|customer table|
-|feedback_rating|stores the rating of the customer's feedback|Feedback Rating|VARCHAR(10)|Candidate Key||
+|order_no|Order Number|stores the rental order number related to the feedback|VARCHAR(20)|Foreign Key|order table|
+|feedback_rating|stores the rating of the customer's feedback|Feedback Rating|ENUM ("5*", "4*", "3*", "2*", "1*")|Candidate Key||
 |feedback_comment|stores the comment given by the customer's feedback|Feedback comment|VARCHAR(500)|Candidate Key||
 
 ### 12. Order
 ### (preliminary list of subject)       
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
-|Rental Order Number(PK)|2394324||Muochu|
+|Order Number(PK)|2394324||Muochu|
 |Customer_ID(FK)|124134543|||
 |VIN(FK)|10001|||
 |Pick-Up Branch ID(FK)|2342342||
 |Return Branch ID(FK)|2342342|||
 |Staff ID(FK)|1001231936|||
 |Rental Type(FK)|sport|||
-|Promotion Code(FK)|0001|||
-|Policy Number(FK)|593054043|||
+|Promotion Code(FK)|0001|can be NULL||
+|Insurance Number(FK)|593054043|can be NULL||
 |Payment ID (FK)|B43434|||
-|Feedback No(FK)|0001|||
+|Feedback No(FK)|0001|can be NUll||
 |Pick-up Date|January 20, 2023|||
 |Pick-up Time|13:00|||
 |Return Date|January 21, 2023|||
@@ -327,13 +325,13 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|rental_order_no|Rental Order Number|stores the rental order number|INT AUTO_INCREMENT|Primary Key||
+|order_no|Order Number|stores the rental order number|INT AUTO_INCREMENT|Primary Key||
 |customer_id|Customer_ID|stores the id of a customer|VARCHAR(20)|Foreign Key|customer table|
 |vin|VIN|stores the VIN(Vehicle Identification Number) of the vehicle|VARCHAR(30)|Foreign Key|car table|
 |pickup_branch_id|Prick-Up Branch|store the branch id fro the car pickup|VARCHAR(64)|Foreign Key|branch table|
 |return_branch_id|Return Branch|stores the branch id for the car return|VARCHAR(64)|Foreign Key|branch table|
 |staff_id|Staff ID|stores the ID number of the staff member facilitating the transaction|VARCHAR(20)|Foreign Key|staff table|
-|rental_type|Rental Type|stores the type of car rental||Foreign Key|rental rate table|
+|rental_rate_type|Rental Rate Type|stores the type of car rental||Foreign Key|rental rate table|
 |promotion_code|Promotion Code|stores the promotion code used during transaction|VARCHAR(20)|Foreign Key|promotion table|
 |policy_no|Policy Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Foreign Key|insurance table|
 |payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Foreign Key|payment table|
@@ -370,14 +368,14 @@ Relative img/ERD_Car_Rental.png
 #### *Appoint primary key and foreign key for both tables 
 
 ### Customer:
-|customer_first_name|customer_last_name|customer_address|customer_contact_no|customer_email|customer_data_of_birth|drivers_license_no|membership|feedback|pick_up_date|pick_up_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(PK)|Vin(FK)|
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
-|Hison|Lin|1234 Main Street Vancouver BC V5P 0H5|7788990011|hison@gmail.com|1990/08/09|123456789|Gold|5*|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|1|987654321|
+|customer_first_name|customer_last_name|customer_address|customer_contact_no|customer_email|customer_data_of_birth|drivers_license_no|membership|feedback|order_no|pick_up_date|pick_up_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(PK)|Vin(FK)|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|Hison|Lin|1234 Main Street Vancouver BC V5P 0H5|7788990011|hison@gmail.com|1990/08/09|123456789|Gold|5*|1|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|1|987654321|
 
 ### Car:
-|VIN(PK)|car_make|car_model|car_year|license_plate_no|latest_maintainance|pick_up_date|pick_up_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(FK)
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
-|Honda|Civic|2018|AB1234C|987654321|Engine Repair|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|1|
+|VIN(PK)|car_make|car_model|car_year|license_plate_no|latest_maintainance|order_no|pick_up_date|pick_up_time|pick_up_branch|return_date|return_time|return_branch|staff|rental_rate|promotion|insurance|payment|payment_amount|purpose|customer_id(FK)
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|Honda|Civic|2018|AB1234C|987654321|Engine Repair|1|2022/12/30|13:00|Vancouver|2023/01/10|13:00|Burnaby|Tom Li|$30/day|10% off|Basic|Visa|$200|liesure|1|
 
 ## Third Normal Form
 ### 1. Customer
@@ -385,11 +383,11 @@ Relative img/ERD_Car_Rental.png
 |--|--|--|--|--|--|--|--|--|
 
 ### 2. Membership
-|membership_no(PK)|membership_type|first_name|last_name|address|contact_no|email|date_of_birth|join_date|
-|--|--|--|--|--|--|--|--|--|
+|membership_no(PK)|customer_id(FK)|membership_type|join_date|
+|--|--|--|--|
 
 ### 3. Car
-|vin(PK)|latest_maintainance_no|make|model|year|license_plate_no|car_type|fuel_type|car_color|seats|
+|vin(PK)|rental_rate_type(FK)|maintainance_no(FK)|make|model|year|license_plate_no|fuel_type|car_color|seats|
 |--|--|--|--|--|--|--|--|--|--|
 
 ### 4. Maintainance
@@ -397,15 +395,15 @@ Relative img/ERD_Car_Rental.png
 |--|--|--|--|--|--|--|--|--|
 
 ### 5. Branch
-|branch_no(PK)|manager_id(FK)|address|city|contact_no|
+|branch_no(PK)|staff_id(FK)|address|city|contact_no|
 |--|--|--|--|--|
 
 ### 6. Staff
-|staff_id(PK)|first_name|last_name|department|position|contact_no|email|hired_date|status|
-|--|--|--|--|--|--|--|--|--|
+|staff_id(PK)|branch_no(FK)|first_name|last_name|department|position|contact_no|email|hired_date|status|
+|--|--|--|--|--|--|--|--|--|--|
 
 ### 7. Rental Rate
-|rental_type(PK)|daily_rate|weekly_rate|monthly_rate|
+|rental_rate_type(PK)|daily_rate|weekly_rate|monthly_rate|
 |--|--|--|--|
 
 ### 8. Promotion
@@ -413,17 +411,17 @@ Relative img/ERD_Car_Rental.png
 |--|--|--|--|--|--|
 
 ### 9. Payment
-|payment_id(PK)|payment_method|cc_no|cc_holder_name|cc_expiration_date|cc_security_code|cc_billing_address|payment_date|payment_amount|payment_receipt_number|
-|--|--|--|--|--|--|--|--|--|--|
+|payment_id(PK)|order_no(FK)|payment_method|cc_no|cc_holder_name|cc_expiration_date|cc_security_code|cc_billing_address|payment_date|payment_amount|payment_receipt_number|
+|--|--|--|--|--|--|--|--|--|--|--|
 
 ### 10. Insurance
-|policy_no(PK)|customer_id(FK)|vin(FK)|insurance_provider|insurance_type|policy_start_date|policy_end_date|insured_amount|premium|deductible|coverage_limit||prev_claim|
-|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|policy_no(PK)|order_no(FK)|customer_id(FK)|vin(FK)|insurance_provider|insurance_type|policy_start_date|policy_end_date|insured_amount|premium|deductible|coverage_limit||prev_claim|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
 
 ### 11. Feedback
-|feedback_no(PK)|customer_id(FK)|feedback_rating|feedback_comment|
-|--|--|--|--|
+|feedback_no(PK)|customer_id(FK)|order_no(FK)|feedback_rating|feedback_comment|
+|--|--|--|--|--|
 
 ### 12. Order
-|rental_order_no(PK)|customer_id(FK)|vin(FK)|pick_up_branch_id(FK)|return_branch_id(FK)|staff_id(FK)|rental_type(FK)|promotion_code(FK)|insurance(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|payment_amount|renting_purpose|
+|rental_order_no(PK)|customer_id(FK)|vin(FK)|pick_up_branch_id(FK)|return_branch_id(FK)|staff_id(FK)|rental_rate_type(FK)|promotion_code(FK)|insurance_no(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|payment_amount|renting_purpose|
 |--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
