@@ -68,8 +68,8 @@
 |--|--|--|--|--|--|
 |membership_no|Membership Number|store the id of a member|INT AUTO_INCREMENT|Primay Key||
 |customer_id|Customer ID|store the id of a customer|INT|Foreign Key|customer table|
-|membership_type|Membership Type|store the type of a membership|ENUM('Platinum', 'Gold', 'Silver', 'Bronze')|Candidate Key||
-|join_date|Join Date|store the date of a member apply for membership|DATE|Candidate Key||
+|membership_type|Membership Type|store the type of a membership|ENUM('Platinum', 'Gold', 'Silver', 'Bronze')|||
+|join_date|Join Date|store the date of a member apply for membership|DATE|||
 
 ### 3. Car
 ### (preliminary list of subject)
@@ -139,7 +139,7 @@
 |branch_no|Branch Number|stores the number of a branch|INT AUTO_INCREMENT|Primary Key||
 |address|Address|stores the address of a branch|VARCHAR(200)|Candidate Key||
 |city|City|stores the city of a branch|VARCHAR(30)|Candidate Key||
-|contact_no|Contact Number|store the contact number of a branch|VARCHAR(20)|Candidate Key||
+|contact_no|Contact Number|store the contact number of a branch|VARCHAR(20)|Alternate Key||
 
 ### 6. Staff
 ### (preliminary list of subject)
@@ -165,8 +165,8 @@
 |last_name|Last Name|stores the last name of a staff|VARCHAR(64)|Candidate Key||
 |department|Department|stores the department of a staff|VARCHAR(30)|Candidate Key||
 |position|Position|stores the position of a staff|VARCHAR(20)|Candidate Key||
-|contact_no|Contact Number|stores the contact number of a staff|VARCHAR(20)|Candidate Key||
-|email|Email|stores the email of a staff|VARCHAR(100)|Candidate Key||
+|contact_no|Contact Number|stores the contact number of a staff|VARCHAR(20)|Alternate Key||
+|email|Email|stores the email of a staff|VARCHAR(100)|Alternate Key||
 |hired_date|Hired Date|stores the hired date of a staff|DATE|Candidate Key||
 |status|Status|stores the status of a staff|ENUM ("Full-time", "Part time", "Terminated")|Candidate Key||
 
@@ -183,9 +183,9 @@
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |rental_rate_type|Rental Rate Type|stores the rental type of a rental|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|Primary Key||
-|daily_rate|Daily Rate|stores the daily rate of a rental|DECIMAL(5,2)|||
-|weekly_rate|Weekly Rate|stores the weekly rate of a rental|DECIMAL(5,2)|||
-|mothly_rate|Mothly Rate|stores the monthly rate of a rental|DECIMAL(6,2)|||
+|daily_rate|Daily Rate|stores the daily rate of a rental|DECIMAL(5,2)|Candidate Key||
+|weekly_rate|Weekly Rate|stores the weekly rate of a rental|DECIMAL(5,2)|Candidate Key||
+|mothly_rate|Mothly Rate|stores the monthly rate of a rental|DECIMAL(6,2)|Candidate Key||
 
 ### 8. Promotion
 ### (preliminary list of subject)
@@ -224,16 +224,16 @@
 |--|--|--|--|--|--|
 |payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Primary Key|transation company|
 |customer_id|Customer ID|store the id of a customer|INT|Foreign Key|customer table|
-|payment_method|Payment Method|stores the payment method used during transaction|ENUM('credit card', 'debit card', 'cash', 'cheque')|Candidate Key||
-|payment_date|Payment Date|stores the date of payment made|DATE|Candidate Key||
-|payment_amount|Payment Amount|stores the total amount from transaction|DECIMAL(8,2)|Candidate Key||
-|payment_receipt_no|Payment Receipt Number|stores payment receipt number|VARCHAR(20)|Alternate Key||
+|method|Payment Method|stores the payment method used during transaction|ENUM('credit card', 'debit card', 'cash', 'cheque')|Candidate Key||
+|date|Payment Date|stores the date of payment made|DATE|Candidate Key||
+|amount|Payment Amount|stores the total amount from transaction|DECIMAL(8,2)|Candidate Key||
+|receipt_no|Payment Receipt Number|stores payment receipt number|VARCHAR(20)|Alternate Key||
 
 ### 10. Insurance
 ### (preliminary list of subject)
 |Field Name|Example of Data|Comments|Person In Charge|
 |--|--|--|--|
-|Insurance Number(PK)|593054043||Muochu|
+|Insurance Policy Number(PK)|593054043||Muochu|
 |Customer ID(FK)|1|||
 |VIN(FK)|10001|||
 |Insurance Provider|AllState|Dropdown menu for Companies||
@@ -249,17 +249,17 @@
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
-|insurance_no|Insurance Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Primary Key|insurance company|
+|insurance_policy_no|Insurance Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Primary Key|insurance company|
 |customer_id|Customer ID|stores the id of a customer|INT|Foreign Key|customer table|
 |vin|VIN|stores the VIN(Vehicle Insurance Number) of the car|VARCHAR(30)|Foreign Key|car table|
-|insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(50)|Candidate Key||
-|insurance_type|Insurance Type|stores the specfic type of coverage(e.g. liability, collision, comprehension, etc.)|ENUM('Liability', 'Collision', 'Comprehension', 'Personal Accident Insurance', 'Personal Effect Coverage', 'Loss of Use Coverage', 'Towing and Labor Coverage', 'Roadside Assistance')|Candidate Key||
-|policy_start_date|Policy Start Date|stores the start date for the insured coverage|DATE|Candidate Key||
-|policy_end_date|Policy End date|stores the end date for the insured coverage|DATE|Candidate Key||
-|insured_amount|Insured Amount|stores the total insurance coverage amount|VARCHAR(20)|Candidate Key||
-|premium|Premium|stores the premium cost of the insurance coverage|DECIMAL(7,2)|Candidate Key||
-|deductible|Deductible|stores the amount the customer must pay out-of pocket as deductible before the insurance policy begins|VARCHAR(20)|Candidate Key||
-|prev_claim|Previous Claim|stores any previous made insurance claim|ENUM ("YES", "NONE")|Candidate Key||
+|insurance_provider|Insurance Provider|store the name of the insurance provider|VARCHAR(50)|||
+|insurance_type|Insurance Type|stores the specfic type of coverage(e.g. liability, collision, comprehension, etc.)|ENUM('Liability', 'Collision', 'Comprehension', 'Personal Accident Insurance', 'Personal Effect Coverage', 'Loss of Use Coverage', 'Towing and Labor Coverage', 'Roadside Assistance')|||
+|policy_start_date|Policy Start Date|stores the start date for the insured coverage|DATE|||
+|policy_end_date|Policy End date|stores the end date for the insured coverage|DATE|||
+|insured_amount|Insured Amount|stores the total insurance coverage amount|VARCHAR(20)|||
+|premium|Premium|stores the premium cost of the insurance coverage|DECIMAL(7,2)|||
+|deductible|Deductible|stores the amount the customer must pay out-of pocket as deductible before the insurance policy begins|VARCHAR(20)|||
+|prev_claim|Previous Claim|stores any previous made insurance claim|ENUM ("YES", "NONE")|||
 
 ### 11. Feedback
 ### (preliminary list of subject)
@@ -267,16 +267,16 @@
 |--|--|--|--|
 |Feedback No.(PK)|0001||Muochu|
 |Customer ID(FK)|000001|||
-|Feedback Rating|5*|||
-|Feedback comment|NULL|||
+|Rating|5*|||
+|comment|NULL|||
 
 ### (preliminary list of field)
 |Field Name(database)|Canonical Name|Description|Data Type|Key|Source|
 |--|--|--|--|--|--|
 |feedback_no|Feedback No.|stores the id of the feedback|INT AUTO_INCREMENT|Primary Key||
 |customer_id|Customer ID|stores the id of a customer|INT|Foreign Key|customer table|
-|feedback_rating|stores the rating of the customer's feedback|Feedback Rating|ENUM ("5*", "4*", "3*", "2*", "1*")|Candidate Key||
-|feedback_comment|stores the comment given by the customer's feedback|Feedback comment|VARCHAR(500)|Candidate Key||
+|rating|Feedback Rating|stores the rating of the customer's feedback|ENUM ("5*", "4*", "3*", "2*", "1*")|||
+|comment|Feedback comment|stores the comment given by the customer's feedback|VARCHAR(500)|||
 
 ### 12. Order
 ### (preliminary list of subject)       
@@ -289,7 +289,6 @@
 |Pick-Up Branch ID(FK)|2342342||
 |Return Branch ID(FK)|2342342|||
 |Staff ID(FK)|1001231936|||
-|Rental Type(FK)|sport|||
 |Promotion Code(FK)|0001|can be NULL||
 |Insurance Number(FK)|593054043|can be NULL||
 |Payment ID (FK)|B43434|||
@@ -298,7 +297,6 @@
 |Pick-up Time|13:00|||
 |Return Date|January 21, 2023|||
 |Return Time|13:00|||
-|Payment Amount|$100|||
 |Renting Purpose|Leisure|||
 
 ### (preliminary list of field)
@@ -311,16 +309,16 @@
 |branch_no_pickup|Prick-Up Branch|store the branch id fro the car pickup|INT|Foreign Key|branch table|
 |branch_no_return|Return Branch|stores the branch id for the car return|INT|Foreign Key|branch table|
 |staff_id|Staff ID|stores the ID number of the staff member facilitating the transaction|INT|Foreign Key|staff table|
-|rental_rate_type|Rental Rate Type|stores the type of car rental|ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan')|Foreign Key|rental rate table|
+'Convertible', 'Van', 'Minivan')|Foreign Key|rental rate table|
 |promotion_code|Promotion Code|stores the promotion code used during transaction|VARCHAR(20)|Foreign Key|promotion table|
 |insurance_no|Policy Number|stores the insurance policy number purchased by the customer|VARCHAR(20)|Foreign Key|insurance table|
 |payment_id|Payment ID|stores the id of a payment|VARCHAR(20)|Foreign Key|payment table|
 |feedback_no|Feedback Number|stores the id of the feedback|INT|Foreign Key|feedback table|
-|pick_up_date|Pick-up Date|stores the date of the car pick up|DATE|Candidate Key||
-|pick_up_time|Pick-up time|stores the time of the car pick up|TIME|Candidate Key||
-|return_date|Return Date|stores the date of the car return|DATE|Candidate Key||
-|return_time|Return time|stores the time of the car return|TIME|Candidate Key||
-|renting_purpose|Renting Purpose|stores the purpose of the car rental|VARCHAR(30)|Candidate Key||
+|pick_up_date|Pick-up Date|stores the date of the car pick up|DATE|||
+|pick_up_time|Pick-up time|stores the time of the car pick up|TIME|||
+|return_date|Return Date|stores the date of the car return|DATE|||
+|return_time|Return time|stores the time of the car return|TIME|||
+|renting_purpose|Renting Purpose|stores the purpose of the car rental|VARCHAR(30)|||
 
 ## ERD
 Relative: 
@@ -358,8 +356,8 @@ Relative img/ERD_Car_Rental.png
 
 ## Third Normal Form
 ### 1. Customer
-|customer_id(PK)|membership_no(FK)|first_name|last_name|address|contact_no|email|date_of_birth|driveers_license_no|
-|--|--|--|--|--|--|--|--|--|
+|customer_id(PK)|first_name|last_name|address|contact_no|email|date_of_birth|drivers_license_no|
+|--|--|--|--|--|--|--|--|
 
 ### 2. Membership
 |membership_no(PK)|customer_id(FK)|membership_type|join_date|
@@ -390,17 +388,17 @@ Relative img/ERD_Car_Rental.png
 |--|--|--|--|--|--|
 
 ### 9. Payment
-|payment_id(PK)|customer_id|payment_method|payment_date|payment_amount|payment_receipt_number|
+|payment_id(PK)|customer_id|method|date|amount|receipt_no|
 |--|--|--|--|--|--|
 
 ### 10. Insurance
-|policy_no(PK)|customer_id(FK)|vin(FK)|insurance_provider|insurance_type|policy_start_date|policy_end_date|insured_amount|premium|deductible|prev_claim|
+|insurance_policy_no(PK)|customer_id(FK)|vin(FK)|insurance_provider|insurance_type|policy_start_date|policy_end_date|insured_amount|premium|deductible|prev_claim|
 |--|--|--|--|--|--|--|--|--|--|--|
 
 ### 11. Feedback
-|feedback_no(PK)|customer_id(FK)|feedback_rating|feedback_comment|
+|feedback_no(PK)|customer_id(FK)|rating|comment|
 |--|--|--|--|
 
 ### 12. Order
-|rental_order_no(PK)|customer_id(FK)|membership_no(FK)|vin(FK)|branch_no_pickup(FK)|branch_no_return(FK)|staff_id(FK)|rental_rate_type(FK)|promotion_code(FK)|insurance_no(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|renting_purpose|
-|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|order_no(PK)|customer_id(FK)|membership_no(FK)|vin(FK)|branch_no_pickup(FK)|branch_no_return(FK)|staff_id(FK)|promotion_code(FK)|insurance_no(FK)|payment(FK)|feedback(FK)|pick_up_date|pick_up_time|return_date|return_time|renting_purpose|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|

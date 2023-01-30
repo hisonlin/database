@@ -95,15 +95,15 @@ CREATE TABLE `promotion` (
 CREATE TABLE `payment` (
     payment_id VARCHAR(20) PRIMARY KEY,
     customer_id INT NOT NULL,
-    payment_method ENUM('credit card', 'debit card', 'cash', 'cheque') NOT NULL,
-    payemnt_date DATE NOT NULL,
-    payment_amount DECIMAL(8,2) NOT NULL,
-    payment_receipt_no VARCHAR(20) NOT NULL,
+    method ENUM('credit card', 'debit card', 'cash', 'cheque') NOT NULL,
+    `date` DATE NOT NULL,
+    amount DECIMAL(8,2) NOT NULL,
+    receipt_no VARCHAR(20) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
 CREATE TABLE `insurance` (
-    insurance_no VARCHAR(20) PRIMARY KEY NOT NULL,
+    insurance_policy_no VARCHAR(20) PRIMARY KEY NOT NULL,
     customer_id INT NOT NULL,
     vin VARCHAR(30) NOT NULL,
     insurance_provider VARCHAR(50) NOT NULL,
@@ -121,8 +121,8 @@ CREATE TABLE `insurance` (
 CREATE TABLE `feedback` (
     feedback_no INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     customer_id INT NOT NULL,
-    feedback_rating ENUM ("5*", "4*", "3*", "2*", "1*") NOT NULL,
-    feedback_comment VARCHAR(500),
+    rating ENUM ("5*", "4*", "3*", "2*", "1*") NOT NULL,
+    comment VARCHAR(500),
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
@@ -134,7 +134,6 @@ CREATE TABLE `order` (
     branch_no_pickup INT NOT NULL,
     branch_no_return INT NOT NULL,
     staff_id INT NOT NULL,
-    rental_rate_type ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan') NOT NULL,
     promotion_code VARCHAR(20),
     insurance_no VARCHAR(20),
     payment_id VARCHAR(20) NOT NULL,
@@ -150,7 +149,6 @@ CREATE TABLE `order` (
     FOREIGN KEY (branch_no_pickup) REFERENCES branch(branch_no),
     FOREIGN KEY (branch_no_return) REFERENCES branch(branch_no),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
-    FOREIGN KEY (rental_rate_type) REFERENCES rental_rate(rental_rate_type),
     FOREIGN KEY (promotion_code) REFERENCES promotion(promotion_code),
     FOREIGN KEY (insurance_no) REFERENCES insurance(insurance_no),
     FOREIGN KEY (payment_id) REFERENCES payment(payment_id),
