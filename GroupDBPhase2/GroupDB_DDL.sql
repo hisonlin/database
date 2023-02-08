@@ -27,25 +27,25 @@ CREATE TABLE membership (
 
 --We change the Primary Key name to rental_rate_type
 CREATE TABLE rental_rate (
-    rental_rate_type ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan') PRIMARY KEY,
+    rental_rate_type ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Coupe', 'Van', 'Minivan') PRIMARY KEY,
     daily_rate DECIMAL(5,2) NOT NULL,
-    weekly_rate DECIMAL(5,2) NOT NULL,
-    monthly_rate DECIMAL(5,2) NOT NULL
+    weekly_rate DECIMAL(6,2) NOT NULL,
+    monthly_rate DECIMAL(7,2) NOT NULL
 );
 
 --We change the Primary Key name to car_vin
 --We add rental_rate_type from rental_rate table as Foreign Key and remove Foreign Key latest_maintainance_no
 --We change seats data type to ENUM
 CREATE TABLE car (
-    car_vin VARCHAR(30) PRIMARY KEY,
-    rental_rate_type ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Convertible', 'Van', 'Minivan') NOT NULL,
+    car_vin VARCHAR(50) PRIMARY KEY,
+    rental_rate_type ENUM ('SUV', 'Compact', 'Sedans', 'Trucks', 'Luxury', 'Sports', 'Coupe', 'Van', 'Minivan') NOT NULL,
     make VARCHAR(30) NOT NULL,
-    model VARCHAR(30) NOT NULL,
+    model VARCHAR(50) NOT NULL,
     year VARCHAR(4) NOT NULL,
     license_plate_no VARCHAR(10) NOT NULL,
     fuel_type ENUM('Electric', 'Diesel', 'Regular', 'Midgrade', 'Premium') NOT NULL,
     color VARCHAR(20) NOT NULL,
-    seats ENUM('2', '4', '5', '7', '8') NOT NULL,
+    seats VARCHAR(1) NOT NULL,
     FOREIGN KEY (rental_rate_type) REFERENCES rental_rate(rental_rate_type)
 );
 
@@ -114,7 +114,7 @@ CREATE TABLE payment (
 CREATE TABLE insurance (
     insurance_policy_no VARCHAR(20) PRIMARY KEY NOT NULL,
     customer_id INT NOT NULL,
-    car_vin VARCHAR(30) NOT NULL,
+    car_vin VARCHAR(50) NOT NULL,
     insurance_provider VARCHAR(50) NOT NULL,
     insurance_type ENUM('Liability', 'Collision', 'Comprehension', 'Personal Accident Insurance', 'Personal Effect Coverage', 'Loss of Use Coverage', 'Towing and Labor Coverage', 'Roadside Assistance') NOT NULL,
     policy_start_date DATE NOT NULL,
@@ -143,7 +143,7 @@ CREATE TABLE `order` (
     order_no INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     customer_id INT NOT NULL,
     membership_no INT,
-    car_vin VARCHAR(30) NOT NULL,
+    car_vin VARCHAR(50) NOT NULL,
     branch_no_pickup INT NOT NULL,
     branch_no_return INT NOT NULL,
     staff_id INT NOT NULL,
