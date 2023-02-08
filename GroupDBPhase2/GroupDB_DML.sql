@@ -30,6 +30,7 @@ insert into rental_rate (rental_rate_type, daily_rate, weekly_rate, monthly_rate
 insert into rental_rate (rental_rate_type, daily_rate, weekly_rate, monthly_rate) values ('Van', 49.99, 339.98, 1199.98);
 insert into rental_rate (rental_rate_type, daily_rate, weekly_rate, monthly_rate) values ('Minivan', 44.99, 299.98, 1099.98);
 
+
 --car
 insert into car (car_vin, rental_rate_type, make, model, year, license_plate_no, fuel_type, color, seats) values ('2T2BK1BA8EC454424', 'Coupe', 'Lincoln', 'Mark VIII', 2010, 'CQ371F', 'Premium', 'black', 5);
 insert into car (car_vin, rental_rate_type, make, model, year, license_plate_no, fuel_type, color, seats) values ('JN1CV6EK8AM181101', 'Luxury', 'BMW', '6 Series', 2019, 'CY295U', 'Premium', 'silver', 5);
@@ -67,3 +68,60 @@ insert into staff (branch_no, first_name, last_name, department , position , con
 insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (2, 'Fina', 'Ramsden', 'Sales', 'Agent', '359-781-6887', 'framsden7@hexun.com', '2022-08-01', 'Full-time');
 insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (2, 'Noll', 'Whitman', 'Sales', 'Supervisor', '530-478-6885', 'nwhitman8@indiegogo.com', '2022-09-14', 'Part time');
 insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (4, 'Franzen', 'Conyer', 'Sales', 'Supervisor', '902-924-4956', 'fconyer9@multiply.com', '2023-01-08', 'Part time');
+
+--promotion
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('SpecialPromotionEaster22', 'Special Promotion for Easter 2022', 'Easter Promotion, 10% off all rentals', '2022-04-01', '20229-04-18', 'expired');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('ChristmasBonus22', 'Christmas Promotion Bonus', 'Christmas 2022, 10% off all rentals', '2022-12-12', '2022-12-27', 'active');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('BlackFriday22', 'Black Friday 2022 Promotion', 'BlackFriday 2022, 20% off all rentals', '2023-11-01', '2023-11-22', 'active');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('SpecialPromotionEaster23', 'Special Promotion for Easter 2023', 'Easter Promotion, 10% off all rentals', '2022-09-02', '2022-09-17', 'expired');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('SPECIAL30', 'VIP exclusive promotion ', '30% off all rentals and free to add 2nd driver', '2022-02-27', '2022-10-19', 'discontinued');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('BUY1GET1', 'New Year Promotion', 'New Year promotion, free on second car', '2022-11-01', '2022-11-22', 'expired');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('SpecialPromotionEaster21', 'Special Promotion for Easter 2021', 'Easter Promotion, 10% off all rentals', '2021-04-01', '2021-04-20', 'active');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('TAXFREE', 'Tax free on all car rentals', 'Tax free for all car rentals on October 31st, 2022', '2022-10-31', '2022-10-31', 'expired');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('BlackFriday23', 'BlackFriday23', 'BlackFriday 2023, 20% off all rental', '2023-11-01', '2023-11-17', 'active');
+insert into promotion (promotion_code, name , description , start_date, end_date, status ) values ('BlackFriday21', 'BlackFriday21', 'BlackFriday 2022, 20% off all rental', '2021-11-01', '2021-11-22', 'expired');
+
+--payment  
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('VADE0B248932', 10, 'credit card', '2022-06-27', 332.08, 108934849);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('ACRAF23DB3C4', 4, 'cash', '2022-09-03', 851.89, 100106280);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('LQB02EF57690', 5, 'debit card', '2022-06-26', 295.03, 103052157);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('NDNUMH6Y38ZM', 7, 'credit card', '2022-04-05', 681.91, 109558205);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('9FQQ645IW2PS', 1, 'cash', '2022-11-05', 961.37, 101818892);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('GS9PO0MTRAEA', 3, 'cheque', '2022-11-19', 1013.12, 101508055);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('J4P46Q6GKPKG', 4, 'credit card', '2022-06-15', 32700.96, 108908133);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('WCF8NNGBIPXA', 9, 'debit card', '2022-12-11', 20518.37, 105622975);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('CUC75K29YJTQ', 2, 'cheque', '2022-05-14', 6179.64, 106872334);
+insert into payment (payment_id, customer_id, method , date , amount , receipt_no) values ('T8XM0FWRMI29', 6, 'cheque', '2023-01-23', 76456.51, 106310910);
+
+--insurance
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (8762248, 1, '2T2BK1BA8EC454424', 'O''Conner LLC', 'Roadside Assistance', '2022-12-01', '2022-12-14', 500000.00, 254.18, 500.00, false);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (6896492, 2, 'JN1CV6EK8AM181101', 'Stracke Group', 'Towing and Labor Coverage', '2022-09-16', '2022-11-14', 1000000.00, 484.22, 500.00, true);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (4474856, 3, 'JN8AF5MR5DT047963', 'Ebert-Olson', 'Personal Effect Coverage', '2022-12-12', '2022-07-24', 800000.0, 254.43, 500.00, true);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (7922411, 6, '1G4GJ5E37CF365011', 'Mraz, Kiehn and Price', 'Personal Effect Coverage', '2023-01-16', '2022-03-14', 1000000.00, 2354.63, 500.00, false);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (3670288, 4, '4USBT33424L973184', 'Mayert Inc', 'Roadside Assistance', '2022-02-20', '2022-05-13', 1000000.00, 6034.98, 500.00, false);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (8441512, 7, '2HNYD18674H577710', 'Rice Group', 'Personal Accident Insurance', '2022-08-10', '2022-02-09', 500000.00, 3865.98, 1000.00, true);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (5216758, 5, '1C4AJWAGXDL579129', 'Bernhard Group', 'Liability', '2022-08-10', '2022-06-16', 800000.00, 264.95, 1000.00, false);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (8341623, 8, 'WAU3FAFR4CA156917', 'Stroman, Fritsch and Aufderhar', 'Towing and Labor Coverage', '2022-04-14', '2022-02-27', 5000000.00, 3754.54, 500.00, false);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (9253139, 10, '1C4SDJCT3EC844127', 'Rosenbaum, O''Connell and Fahey', 'Collision', '2022-05-23', '2022-07-15', 100000.00, 317.44, 500.00, true);
+insert into insurance (insurance_policy_no, customer_id, car_vin, insurance_provider, insurance_type, policy_start_date, policy_end_date, insured_amount, premium , deductible , prev_claim) values (7120323, 9, 'JH4CL958X5C196959', 'Nitzsche Inc', 'Liability', '2022-05-02', '2022-04-14', 100000.00, 112.83, 1000.00, false);
+
+--feedback
+insert into feedback (customer_id, rating, comment) values (7, '4*', "The car was in excellent condition and met all my needs for my trip.");
+insert into feedback (customer_id, rating, comment) values (10, '5*', "I appreciate the convenient and easy rental process.");
+insert into feedback (customer_id, rating, comment) values (3, '4*', "I was impressed with the variety of vehicles available and the competitive pricing.");
+insert into feedback (customer_id, rating, comment) values (6, '1*', "Never come again!");
+insert into feedback (customer_id, rating, comment) values (2, '2*', "Bad experience!");
+
+--order
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (1, 'NULL', '2T2BK1BA8EC454424', 1, 1, 'NULL', 8762248, '9FQQ645IW2PS', 'NULL' );
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (3, 2, 'JN8AF5MR5DT047963', 2, 2, 1, 'NULL', 4474856, 'GS9PO0MTRAEA', 3);
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (5, 1, '1C4AJWAGXDL579129', 4, 4, 10, 'NULL', 5216758, 'LQB02EF57690', 'NULL' );
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (7, 'NULL', '2HNYD18674H577710', 5, 5, 2,'NULL', 8441512, 'NDNUMH6Y38ZM', 1 );
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (9, 4, 'JH4CL958X5C196959', 2, 2, 8, 'NULL', 7120323, 'WCF8NNGBIPXA', 'NULL');
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (2, 'NULL', 'JN1CV6EK8AM181101', 3, 2, 7, 'NULL', 6896492, 'CUC75K29YJTQ', 5 );
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (4, 'NULL', '4USBT33424L973184', 1, 1, 6, 'NULL', 3670288, 'ACRAF23DB3C4', 'NULL' );
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (6, 'NULL', '1G4GJ5E37CF365011', 2, 3, 1, 'NULL', 7922411, 'T8XM0FWRMI29', 4);
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (8, 5, 'WAU3FAFR4CA156917', 1, 1, 6, 'NULL', 8341623, 'J4P46Q6GKPKG', 'NULL');
+insert into order (customer_id, membership_no, car_vin, branch_no_pickup, branch_no_return , staff_id, promotion_code, insurance_policy_no, payment_id, feedback_no, pick_up_date, pick_up_time, return_date, return_time, renting_purpose) values (10, 3, '1C4SDJCT3EC844127', 5, 5, 2, 'NULL', 9253139, 'VADE0B248932', 2);
+
+

@@ -79,7 +79,7 @@ CREATE TABLE staff (
     department VARCHAR(30) NOT NULL,
     position VARCHAR(20) NOT NULL,
     contact_no VARCHAR(20) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(3) NOT NULL,
     hire_date DATE NOT NULL,
     status ENUM ("Full-time", "Part time", "Terminated") NOT NULL,
     FOREIGN KEY (branch_no) REFERENCES branch(branch_no)
@@ -87,7 +87,7 @@ CREATE TABLE staff (
 
 
 CREATE TABLE promotion (
-    promotion_code VARCHAR(20)PRIMARY KEY,
+    promotion_code VARCHAR(50)PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     description VARCHAR(100) NOT NULL,
     start_date DATE NOT NULL,
@@ -99,12 +99,12 @@ CREATE TABLE promotion (
 --We add customer_id from customer table as Foreign Key
 --We change method data type to Enum
 CREATE TABLE payment (
-    payment_id VARCHAR(20) PRIMARY KEY,
+    payment_id VARCHAR(40) PRIMARY KEY,
     customer_id INT NOT NULL,
     method ENUM('credit card', 'debit card', 'cash', 'cheque') NOT NULL,
     date DATE NOT NULL,
-    amount DECIMAL(8,2) NOT NULL,
-    receipt_no VARCHAR(20) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    receipt_no VARCHAR(50) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
@@ -114,14 +114,14 @@ CREATE TABLE payment (
 CREATE TABLE insurance (
     insurance_policy_no VARCHAR(20) PRIMARY KEY NOT NULL,
     customer_id INT NOT NULL,
-    car_vin VARCHAR(50) NOT NULL,
+    car_vin VARCHAR(70) NOT NULL,
     insurance_provider VARCHAR(50) NOT NULL,
     insurance_type ENUM('Liability', 'Collision', 'Comprehension', 'Personal Accident Insurance', 'Personal Effect Coverage', 'Loss of Use Coverage', 'Towing and Labor Coverage', 'Roadside Assistance') NOT NULL,
     policy_start_date DATE NOT NULL,
     policy_end_date DATE NOT NULL,
-    insured_amount VARCHAR(20) NOT NULL,
-    premium DECIMAL(7,2) NOT NULL,
-    deductible VARCHAR(20) NOT NULL,
+    insured_amount VARCHAR(40) NOT NULL,
+    premium DECIMAL(10,2) NOT NULL,
+    deductible VARCHAR(40) NOT NULL,
     prev_claim BOOLEAN NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
     FOREIGN KEY (car_vin) REFERENCES car(car_vin)
