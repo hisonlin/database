@@ -139,6 +139,7 @@ CREATE TABLE feedback (
 --We change the Primary Key name to order_id
 --We add membership_no from membership table as Foreign Key
 --We remove Foregin Key rental_type since we can find out now at Foregin Key car_vin from car table
+--We combine date and time together
 CREATE TABLE `order` (
     order_no INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     customer_id INT NOT NULL,
@@ -149,12 +150,10 @@ CREATE TABLE `order` (
     staff_id INT NOT NULL,
     promotion_code VARCHAR(20),
     insurance_policy_no VARCHAR(20),
-    payment_id VARCHAR(20) NOT NULL,
+    payment_id VARCHAR(40) NOT NULL,
     feedback_no INT,
-    pick_up_date DATE NOT NULL,
-    pick_up_time TIME NOT NULL,
-    return_date DATE NOT NULL,
-    return_time TIME NOT NULL,
+    pick_up_date DATETIME NOT NULL,
+    return_date DATETIME NOT NULL,
     renting_purpose VARCHAR(30) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
     FOREIGN KEY (membership_no) REFERENCES membership(membership_no),
