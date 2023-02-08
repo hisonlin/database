@@ -41,3 +41,29 @@ insert into car (car_vin, rental_rate_type, make, model, year, license_plate_no,
 insert into car (car_vin, rental_rate_type, make, model, year, license_plate_no, fuel_type, color, seats) values ('WAU3FAFR4CA156917', 'Sedans', 'Lexus', 'LX', 2017, 'NP864W', 'Regular', 'silver', 5);
 insert into car (car_vin, rental_rate_type, make, model, year, license_plate_no, fuel_type, color, seats) values ('1C4SDJCT3EC844127', 'Compact', 'Volkswagen', 'rio', 2021, 'LK284U', 'Regular', 'grey', 5);
 insert into car (car_vin, rental_rate_type, make, model, year, license_plate_no, fuel_type, color, seats) values ('JH4CL958X5C196959', 'Trucks', 'Dodge', 'Ram 1500', 2018, 'VG471H', 'Regular', 'silver', 5);
+
+--maintenance
+insert into maintenance (maintenance_no, car_vin, maintenance_date, description, cost, facility_name, technician_name, return_date) values (27354495, '2T2BK1BA8EC454424', '2022-10-12', 'Oil Change: Replacing the engine oil and oil filter', 443.03, 'Daniel-Nitzsche', 'Cassandre Gilbane', '2022-03-09');
+insert into maintenance (maintenance_no, car_vin, maintenance_date, description, cost, facility_name, technician_name, return_date) values (47196826, 'JN1CV6EK8AM181101', '2022-02-12', 'Tire Rotation: Moving the tires to different positions on the vehicle to ensure even wear', 202.69, 'Satterfield, Harris and Lehner', 'Tadd Trevan', '2022-06-05');
+insert into maintenance (maintenance_no, car_vin, maintenance_date, description, cost, facility_name, technician_name, return_date) values (51779840, 'JN8AF5MR5DT047963', '2022-09-02', 'Brake Inspection: Checking the brake system', 245.80, 'Runolfsdottir-Bogan', 'Timothea Fellos', '2022-10-11');
+insert into maintenance (maintenance_no, car_vin, maintenance_date, description, cost, facility_name, technician_name, return_date) values (80952188, '1G4GJ5E37CF365011', '2023-01-19', 'Battery Maintenance: Cleaning the battery terminals, checking the battery charge', 444.45, 'Mertz, Wiza and Terry', 'Philbert Seville', '2022-07-23');
+insert into maintenance (maintenance_no, car_vin, maintenance_date, description, cost, facility_name, technician_name, return_date) values (11240925, '4USBT33424L973184', '2022-12-17', 'Engine Tune-Up: Adjusting or replacing spark plugs, air filters', 182.34, 'Schroeder-Nader', 'Schuyler Bover', '2022-10-12');
+
+--branch
+insert into branch (address, city, contact_no) values ('33 Vernon Point', 'Vancouver', '203-116-9130');
+insert into branch (address, city, contact_no) values ('05 Anthes Circle', 'Burnaby', '963-545-1998');
+insert into branch (address, city, contact_no) values ('191 Hagan Avenue', 'Richmond', '757-801-7338');
+insert into branch (address, city, contact_no) values ('3877 Sutteridge Parkway', 'Vancouver', '198-766-7184');
+insert into branch (address, city, contact_no) values ('8 Lunder Way', 'Vancouver', '520-325-4443');
+
+--staff
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (2, 'Giles', 'Temblett', 'Sales', 'Supervisor', '360-713-5817', 'gtemblett0@addtoany.com', '2022-12-09', 'Terminated');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (5, 'Chaim', 'Bagnal', 'Sales', 'Agent', '735-119-0752', 'cbagnal1@sphinn.com', '2022-10-06', 'Full-time');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (5, 'Roy', 'Aron', 'Sales', 'Agent', '354-325-6039', 'raron2@aol.com', '2022-06-25', 'Part time');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (5, 'Dita', 'Thurlby', 'Sales', 'Agent', '634-591-1380', 'dthurlby3@a8.net', '2022-08-09', 'Part time');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (5, 'Rozanna', 'Recke', 'Sales', 'Agent', '583-356-0656', 'rrecke4@indiatimes.com', '2022-06-05', 'Terminated');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (1, 'Renate', 'Kerner', 'Sales', 'Agent', '243-754-3681', 'rkerner5@ucsd.edu', '2022-11-12', 'Full-time');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (3, 'Madge', 'Firth', 'Sales', 'Agent', '991-725-2529', 'mfirth6@msn.com', '2022-08-16', 'Terminated');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (2, 'Fina', 'Ramsden', 'Sales', 'Agent', '359-781-6887', 'framsden7@hexun.com', '2022-08-01', 'Full-time');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (2, 'Noll', 'Whitman', 'Sales', 'Supervisor', '530-478-6885', 'nwhitman8@indiegogo.com', '2022-09-14', 'Part time');
+insert into staff (branch_no, first_name, last_name, department , position , contact_no, email, hire_date , status ) values (4, 'Franzen', 'Conyer', 'Sales', 'Supervisor', '902-924-4956', 'fconyer9@multiply.com', '2023-01-08', 'Part time');

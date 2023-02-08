@@ -34,7 +34,7 @@ CREATE TABLE rental_rate (
 );
 
 --We change the Primary Key name to car_vin
---We add rental_rate_type from rental_rate table as Foreign Key and remove Foreign Key latest_maintainance_no
+--We add rental_rate_type from rental_rate table as Foreign Key and remove Foreign Key latest_maintenance_no
 --We change seats data type to ENUM
 CREATE TABLE car (
     car_vin VARCHAR(50) PRIMARY KEY,
@@ -49,11 +49,11 @@ CREATE TABLE car (
     FOREIGN KEY (rental_rate_type) REFERENCES rental_rate(rental_rate_type)
 );
 
---We remove maintainance_type field since its similar to description
-CREATE TABLE maintainance (
-    maintainance_no VARCHAR(30) PRIMARY KEY,
-    car_vin VARCHAR(30) NOT NULL,
-    maintainance_date DATE NOT NULL,
+--We remove maintenance_type field since its similar to description
+CREATE TABLE maintenance (
+    maintenance_no VARCHAR(30) PRIMARY KEY,
+    car_vin VARCHAR(50) NOT NULL,
+    maintenance_date DATE NOT NULL,
     description VARCHAR(500) NOT NULL,
     cost DECIMAL(8,2) NOT NULL,
     facility_name VARCHAR(100) NOT NULL,
