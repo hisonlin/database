@@ -148,7 +148,7 @@ CREATE TABLE `order` (
     branch_no_pickup INT NOT NULL,
     branch_no_return INT NOT NULL,
     staff_id INT NOT NULL,
-    promotion_code VARCHAR(20),
+    promotion_code VARCHAR(50),
     insurance_policy_no VARCHAR(20),
     payment_id VARCHAR(40) NOT NULL,
     feedback_no INT,
