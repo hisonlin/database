@@ -31,12 +31,14 @@ Relative img/Query_2.png
 ## 3 (Rayna)
 |   |
 |--|
-|Retrive the sum payment responsible for each staff, sorted by their staff ID|
-    SELECT o.staff_id, SUM(p.amount) 
-        FROM `order` o
-            JOIN payment p
-                ON o.payment_id = p.payment_id
-                    GROUP BY o.staff_id;
+|Retrive the sum payment in 2022 responsible for each staff, sorted by their staff ID|
+    SELECT o.staff_id, SUM(p.amount) AS total_payment
+	FROM payment p
+		JOIN `order` o ON o.payment_id = p.payment_id
+			WHERE YEAR(p.date) = 2022
+				GROUP BY o.staff_id
+					ORDER BY o.staff_id;
+
 
 Relative: 
 Relative img/Query_3.png
